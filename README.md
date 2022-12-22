@@ -1,6 +1,6 @@
 # 🧑‍💻 Sigma Labs Coursework
 
-## Getting Setup
+## 🛠️ Getting Setup
 
 1. **Fork** this Repository to your Github Account
 2. **Enable Actions** on your cloned Repository. [See below](#enable-actions) for how to do this.
@@ -15,7 +15,7 @@ Before starting your coursework, you must click the buttons shown below on your 
 
 You are now ready to clone this repo and work on this coursework locally. Remember to commit and push your changes often!
 
-## Files Explained
+## 🗂️ Files Explained
 
 In this Repository you will find all of the materials for this week of the course.
 
@@ -38,8 +38,17 @@ Additionally, you will find some other files that are used by VSCode:
 
 Any other files found here **are relevant** for your coursework.
 
-## Code Review Folder
+## ✅ Code Review Folder
 
 Every time you commit your code to Github, we will run a suite of tests to ensure that you code is of high quality.
 
-It's worth noting - this **does not evaluate the quality of your solution**. This of it as evaluating the 'grammar' and 'spelling' of your code rather than the actual quality of the work you've done.
+It's worth noting - this **does not evaluate the quality of your solution**. Think of it as evaluating the 'grammar' and 'spelling' of your code rather than the actual quality of the work you've done.
+
+Inside this folder you'll find two files
+
+- `report.txt`
+  - A plain text version of your code quality
+- `report.json`
+  - A computer-friendly version of your code quality, including your 'Code Quality Score'
+
+Consistently keeping your score high will make your code easier to read and understand.
