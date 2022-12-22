@@ -43,6 +43,7 @@ jobs:
           npm install eslint
           npm install prettier
           npm install react
+          npm install eslint-plugin-react
           npx install-peerdeps eslint-config-airbnb
 
       - name: Run lint
@@ -58,14 +59,14 @@ jobs:
 
       - name: Prepare environment
         id: average_score
-        run: |       
+        run: |
           echo "SCORE=$(jq '.average_score' code_review/report.json)" >> $GITHUB_ENV
 
         env:
           CODE_QUALITY: ${{ env.SCORE }}
           BADGE_PATH: .github/badges/code_quality.svg
           BRANCH: main
-      
+
         # Create the directory where badges will be saved, if needed
       - name: Create destination directory
         env:
