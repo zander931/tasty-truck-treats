@@ -19,7 +19,6 @@ def split_on_new_line(content: str) -> list:
     # split_content_on_error = re.split(split_on_error,content)
     file_path_regex = r'(?<!")(\.{1}\/.*js)(?!")'
     split_on_file_name = re.split(file_path_regex, content)
-
     return split_on_file_name
 
 
