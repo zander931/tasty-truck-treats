@@ -1,4 +1,4 @@
-name: Eslint
+name: JavaScript Code Quality
 
 on:
   push:
