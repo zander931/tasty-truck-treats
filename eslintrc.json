@@ -1,0 +1,88 @@
+{
+    "env": {
+      "browser": true,
+      "shared-node-browser": true,
+      "node": true,
+      "es6": true
+    },
+    "extends": [
+      "react:recommended",
+      "eslint:recommended",
+      "react-app:recommended",
+      "prettier",
+      "plugin:prettier/recommended",
+      "plugin:react-hooks/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:react/jsx-runtime"
+    ],
+    "plugins": [
+      "react-app",
+      "react",
+      "prettier",
+      "react-hooks",
+      "import",
+      "jest"
+    ],
+    "rules": {
+      "eqeqeq": "error",
+      "no-var": "error",
+      "prefer-const": "error",
+      "curly": ["warn", "multi-line", "consistent"],
+      "no-console": "off",
+      "import/no-unresolved": ["error", { "commonjs": true, "amd": true }],
+      "import/export": "error",
+      "jest/consistent-test-it": [
+        "error",
+        { "fn": "it", "withinDescribe": "it" }
+      ],
+      "import/order": [
+        "error",
+        {
+          "alphabetize": { "order": "asc", "caseInsensitive": true },
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "object"
+          ],
+          "newlines-between": "never",
+          "pathGroups": [
+            { "pattern": "react", "group": "builtin", "position": "before" }
+          ],
+          "pathGroupsExcludedImportTypes": ["builtin"]
+        }
+      ],
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "sort-imports": ["error", { "ignoreDeclarationSort": true }]
+    },
+    "settings": {
+      "react": { "version": "detect" },
+      "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
+          "paths": ["src"]
+        },
+        "alias": {
+          "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
+          "map": [
+            ["^jotai$", "./src/index.ts"],
+            ["jotai", "./src"]
+          ]
+        }
+      }
+    },
+    "overrides": [
+      { "files": ["src"], "parserOptions": { "project": "./tsconfig.json" } },
+      { "files": ["tests/**/*.tsx"], "env": { "jest/globals": true } },
+      {
+        "files": ["./*.js"]
+      }
+    ]
+  }
+  

@@ -1,0 +1,73 @@
+name: Eslint
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.js'
+
+jobs:
+  es_lint:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [14]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Making the logfile if it does not exist
+        run: python .utils/make_logs.py
+
+      - name: Setup node env
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Installing eslint
+        run: npm install eslint
+
+      - name: Installing prettier
+        run: npm install prettier
+
+      - name: install react
+        run: npm install react
+
+      - name: install additional configs
+        run: |
+          npm install eslint-plugin-react
+          npm install eslint-config-react-app
+          npm install eslint-plugin-react-hooks
+          npm install eslint-config-prettier
+          npm install eslint-plugin-prettier
+
+      - name: Run lint
+        run: |
+          > code_review/report.txt
+          find . -path "./node_modules/*" -prune -o ! -path "*.test.js" -name '*.js' \
+           -print -exec npx eslint {} \; >> code_review/report.txt
+
+      - name: Generate JSON from text file
+        run: |
+          python .utils/parse_raw_js.py
+
+      - name: Committing the logs to the repo
+        run: |
+          git config --global user.name "$(git log -n 1 --pretty=format:%an)"
+          git config --global user.email "$(git log -n 1 --pretty=format:%ae)"
+          git pull
+          git add code_review/report.txt code_review/report.json
+          git checkout main
+          git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
+          git push
