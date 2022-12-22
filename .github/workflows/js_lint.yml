@@ -51,10 +51,12 @@ jobs:
           npm install eslint-plugin-react-hooks
           npm install eslint-config-prettier
           npm install eslint-plugin-prettier
+          npx install-peerdeps eslint-config-airbnb
 
       - name: Run lint
         run: |
           > code_review/report.txt
+          > code_review/report.json
           find . -path "./node_modules/*" -prune -o ! -path "*.test.js" -name '*.js' \
            -print -exec npx eslint {} \; >> code_review/report.txt
 
