@@ -41,10 +41,10 @@ jobs:
       - name: Installing prettier
         run: npm install prettier
 
-      - name: install react
+      - name: Install react
         run: npm install react
 
-      - name: install additional configs
+      - name: Install additional configs
         run: |
           npm install eslint-plugin-react
           npm install eslint-config-react-app
