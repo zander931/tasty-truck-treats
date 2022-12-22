@@ -1,0 +1,15 @@
+./tests_delete_me/test.js
+
+/home/runner/work/Coursework-Template/Coursework-Template/tests_delete_me/test.js
+  1:1   error  Unexpected var, use let or const instead         no-var
+  1:5   error  'unused' is assigned a value but never used      no-unused-vars
+  1:18  error  Missing semicolon                                semi
+  2:7   error  Identifier 'camel_case' is not in camel case     camelcase
+  2:7   error  'camel_case' is assigned a value but never used  no-unused-vars
+  2:25  error  Missing semicolon                                semi
+  3:7   error  'ben' is assigned a value but never used         no-unused-vars
+  3:27  error  Missing semicolon                                semi
+
+✖ 8 problems (8 errors, 0 warnings)
+  4 errors and 0 warnings potentially fixable with the `--fix` option.
+
