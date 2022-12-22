@@ -5,7 +5,7 @@ import pandas as pd
 from uuid import uuid4
 from typing import List, Optional
 
-
+      
 class SQLConnection:
     def __init__(
         self,
