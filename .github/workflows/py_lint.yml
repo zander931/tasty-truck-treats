@@ -60,10 +60,11 @@ jobs:
         uses: emibcn/badge-action@v1
         id: badge
         with:
-          label: 'Code quality'
+          label: 'Code Quality'
           status: ${{ env.SCORE }}
           color: 'blue'
           path: .github/badges/code_quality.svg
+          scale: 2
 
       - name: Upload badge as artifact
         uses: actions/upload-artifact@v2
