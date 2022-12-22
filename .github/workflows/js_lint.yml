@@ -28,6 +28,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Cache node_modules
+        id: node_dependency_cache
         uses: actions/cache@v2
         with:
           path: ~/.npm
@@ -35,17 +36,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Installing eslint
-        run: npm install eslint
-
-      - name: Installing prettier
-        run: npm install prettier
-
-      - name: Install react
-        run: npm install react
-
-      - name: Install additional configs
+      - name: Installing dependencies
+        if: steps.node_dependency_cache.cache-hit != 'true'
         run: |
+          npm install eslint
+          npm install prettier
+          npm install react
           npx install-peerdeps eslint-config-airbnb
 
       - name: Run lint
