@@ -8,10 +8,15 @@
     "3:1   error    All 'var' declarations must be at the top of the function scope  vars-on-top",
     "3:1   error    Unexpected var, use let or const instead                         no-var",
     "3:5   error    'unused' is assigned a value but never used                      no-unused-vars",
-    "3:18  error    Missing semicolon                                                semi"
+    "3:18  error    Missing semicolon                                                semi",
+    "4:1   error    All 'var' declarations must be at the top of the function scope  vars-on-top",
+    "4:1   error    Unexpected var, use let or const instead                         no-var",
+    "4:5   error    Identifier 'is_speed_improved' is not in camel case              camelcase",
+    "4:5   error    'is_speed_improved' is assigned a value but never used           no-unused-vars",
+    "4:29  error    Missing semicolon                                                semi"
    ],
-   "score": 0
+   "score": 66.7
   }
  ],
- "average_score": 0.0
+ "average_score": 66.7
 }
