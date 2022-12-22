@@ -25,42 +25,7 @@
     "import",
     "jest"
   ],
-  "rules": {
-    "eqeqeq": "error",
-    "no-var": "error",
-    "prefer-const": "error",
-    "curly": ["warn", "multi-line", "consistent"],
-    "no-console": "off",
-    "import/no-unresolved": ["error", { "commonjs": true, "amd": true }],
-    "import/export": "error",
-    "jest/consistent-test-it": [
-      "error",
-      { "fn": "it", "withinDescribe": "it" }
-    ],
-    "import/order": [
-      "error",
-      {
-        "alphabetize": { "order": "asc", "caseInsensitive": true },
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "object"
-        ],
-        "newlines-between": "never",
-        "pathGroups": [
-          { "pattern": "react", "group": "builtin", "position": "before" }
-        ],
-        "pathGroupsExcludedImportTypes": ["builtin"]
-      }
-    ],
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "sort-imports": ["error", { "ignoreDeclarationSort": true }]
-  },
+  "rules": {},
   "settings": {
     "react": { "version": "detect" },
     "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
