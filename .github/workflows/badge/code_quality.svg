@@ -11,10 +11,10 @@
     <rect width="1141" height="200" fill="url(#a)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-    <text x="60" y="148" textLength="691" fill="#000" opacity="0.25">Code quality</text>
-    <text x="50" y="138" textLength="691">Code quality</text>
+    <text x="60" y="148" textLength="691" fill="#000" opacity="0.25">Code Quality</text>
+    <text x="50" y="138" textLength="691">Code Quality</text>
     <text x="846" y="148" textLength="250" fill="#000" opacity="0.25">72.4</text>
-    <text x="836" y="138" textLength="250">72.4</text>
+    <text x="836" y="138" textLength="250">??</text>
   </g>
   
 </svg>
