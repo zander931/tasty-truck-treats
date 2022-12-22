@@ -1,6 +1,7 @@
 name: Python Code Quality
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -60,10 +61,11 @@ jobs:
         uses: emibcn/badge-action@v1
         id: badge
         with:
-          label: 'Code quality'
-          status: ${{ env.SCORE }}
+          label: 'Code Quality Score: '
+          status: ${{ format('{0}/100', env.SCORE) }}
           color: 'blue'
           path: .github/badges/code_quality.svg
+          scale: 1.5
 
       - name: Upload badge as artifact
         uses: actions/upload-artifact@v2

@@ -1,4 +1,4 @@
 {
   "extends": ["airbnb", "airbnb/hooks"],
-  "rules": { "semi": "off" }
+  "rules": { "semi": "off", "no-undef": "off" }
 }
