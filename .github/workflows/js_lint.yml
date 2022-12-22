@@ -51,6 +51,7 @@ jobs:
           npm install eslint-plugin-react-hooks
           npm install eslint-config-prettier
           npm install eslint-plugin-prettier
+          npx install-peerdeps eslint-config-airbnb
 
       - name: Run lint
         run: |
