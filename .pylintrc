@@ -1,3 +1,9 @@
+
+############# This is a custom .pylintrc file 
+############# You can also use .pylintrc configs from Google: https://github.com/google/styleguide/blob/gh-pages/pylintrc #############
+
+
+
 [MAIN]
 
 # Specify a configuration file.
@@ -81,12 +87,8 @@ fail-on=
 # multiple time (only on the command line, not in the configuration file where
 # it should appear only once). See also the "--disable" option for examples.
 enable=
-    wrong-import-order,
-    ungrouped-imports,
     invalid-name,
-    protected-access,
-    fixme,
-    cyclic-import
+    fixme
 
 
 # Disable the message, report, category or checker with the given id(s). You
@@ -112,7 +114,10 @@ disable=
     implicit-str-concat,
     trailing-newlines,
     anomalous-backslash-in-string,
-    missing-function-docstring
+    missing-function-docstring,
+    wrong-import-order,
+    
+
 
 
 [REPORTS]

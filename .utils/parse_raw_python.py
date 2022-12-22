@@ -13,10 +13,11 @@ def check_empty_file(file_name: str):
 
 def read_file(file_name: str) -> str:
     """Read the contents of the raw text file produced from pylint in github actions"""
-    check_empty_file(file_name)
+    
     try:
         with open(file_name) as file:
             content = file.read()
+            check_empty_file(file_name)
 
     except FileNotFoundError:
         print("File not found")
