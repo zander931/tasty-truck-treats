@@ -1,0 +1,18 @@
+{
+ "files": [
+  {
+   "file_name": "./toothbrush/assets/sql_wrapper.py",
+   "errors": [
+    "toothbrush/assets/sql_wrapper.py:9:0: C0115: Missing class docstring (missing-class-docstring)",
+    "toothbrush/assets/sql_wrapper.py:19:23: W1309: Using an f-string that does not have any interpolated variables (f-string-without-interpolation)",
+    "toothbrush/assets/sql_wrapper.py:9:0: W0612: Unused variable 'SQLConnection' (unused-variable)",
+    "toothbrush/assets/sql_wrapper.py:6:0: W0612: Unused variable 'List' (unused-variable)",
+    "toothbrush/assets/sql_wrapper.py:6:0: W0612: Unused variable 'Optional' (unused-variable)",
+    "toothbrush/assets/sql_wrapper.py:6:0: W0611: Unused List imported from typing (unused-import)",
+    "toothbrush/assets/sql_wrapper.py:6:0: W0611: Unused Optional imported from typing (unused-import)"
+   ],
+   "score": 41.7
+  }
+ ],
+ "average_score": 41.7
+}
