@@ -31,6 +31,7 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           > code_review/report.txt
+          > code_review/report.json
           find . -path "./.utils/*" -prune -o -name '*.py' -print \
           -exec pylint --rcfile ./.pylintrc {} \; \
           >> code_review/report.txt

@@ -55,6 +55,7 @@ jobs:
       - name: Run lint
         run: |
           > code_review/report.txt
+          > code_review/report.json
           find . -path "./node_modules/*" -prune -o ! -path "*.test.js" -name '*.js' \
            -print -exec npx eslint {} \; >> code_review/report.txt
 
