@@ -1,15 +1,38 @@
-./tests_delete_me/test.js
+./REACT_TEST/my-app/src/index.js
 
-/home/runner/work/Coursework-Template/Coursework-Template/tests_delete_me/test.js
-  1:1   error  Unexpected var, use let or const instead         no-var
-  1:5   error  'unused' is assigned a value but never used      no-unused-vars
-  1:18  error  Missing semicolon                                semi
-  2:7   error  Identifier 'camel_case' is not in camel case     camelcase
-  2:7   error  'camel_case' is assigned a value but never used  no-unused-vars
-  2:25  error  Missing semicolon                                semi
-  3:7   error  'ben' is assigned a value but never used         no-unused-vars
-  3:27  error  Missing semicolon                                semi
+/home/runner/work/Coursework-Template/Coursework-Template/REACT_TEST/my-app/src/index.js
+  4:8  warning  'App' is defined but never used  no-unused-vars
 
-✖ 8 problems (8 errors, 0 warnings)
-  4 errors and 0 warnings potentially fixable with the `--fix` option.
+✖ 1 problem (0 errors, 1 warning)
 
+./REACT_TEST/my-app/src/App.js
+./REACT_TEST/my-app/src/reportWebVitals.js
+./REACT_TEST/my-app/src/setupTests.js
+./REACT_TEST/meal-counter/src/index.js
+./REACT_TEST/meal-counter/src/Counter.js
+
+/home/runner/work/Coursework-Template/Coursework-Template/REACT_TEST/meal-counter/src/Counter.js
+  1:17  warning  'useState' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./REACT_TEST/meal-counter/src/App.js
+
+/home/runner/work/Coursework-Template/Coursework-Template/REACT_TEST/meal-counter/src/App.js
+  1:8  warning  'logo' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./REACT_TEST/meal-counter/src/reportWebVitals.js
+./REACT_TEST/meal-counter/src/setupTests.js
+./REACT_TEST/potions-class/src/index.js
+./REACT_TEST/potions-class/src/data.js
+./REACT_TEST/potions-class/src/App.js
+
+/home/runner/work/Coursework-Template/Coursework-Template/REACT_TEST/potions-class/src/App.js
+   2:27  warning  'useEffect' is defined but never used                 no-unused-vars
+  29:9   warning  'newStudentHouse' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+
+./REACT_TEST/potions-class/src/setupTests.js
