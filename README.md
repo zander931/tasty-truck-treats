@@ -1,14 +1,9 @@
 # 🧑‍💻 Sigma Labs Coursework
 
-- [🧑‍💻 Sigma Labs Coursework](#-sigma-labs-coursework)
-  - [🛠️ Getting Setup](#️-getting-setup)
-  - [🗂️ Files Explained](#️-files-explained)
-  - [✅ Code Review Folder](#-code-review-folder)
-
 ## 🛠️ Getting Setup
 
 1. **Fork** this Repository to your Github Account
-2. **Enable Actions** on your cloned Repository. [See below](#enable-actions) for how to do this.
+2. **Enable Workflows** on your cloned Repository. See the below image for how to do this.
 3. **Clone** your Repository to your laptop
 4. **Open** this folder in VSCode
 
