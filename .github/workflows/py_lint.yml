@@ -1,0 +1,50 @@
+name: Python Code Quality
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.py'
+
+jobs:
+  pylint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+
+      - name: Making the logfile if it does not exist
+        run: python .utils/make_logs.py
+
+      - name: Analysing the code with pylint
+        run: |
+          > code_review/report.txt
+          > code_review/report.json
+          find . -path "./.utils/*" -prune -o -name '*.py' -print \
+          -exec pylint --rcfile ./.pylintrc {} \; \
+          >> code_review/report.txt
+
+      - name: Converting logs into JSON
+        run: python .utils/parse_raw_python.py
+
+      - name: Committing the logs to the repo
+        run: |
+          git config --global user.name "$(git log -n 1 --pretty=format:%an)"
+          git config --global user.email "$(git log -n 1 --pretty=format:%ae)"
+          git pull
+          git add -A
+          git checkout main
+          git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
+          git push
