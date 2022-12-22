@@ -55,12 +55,45 @@ jobs:
         run: |
           python .utils/parse_raw_js.py
 
+      - name: Prepare environment
+        id: average_score
+        run: |       
+          echo "SCORE=$(jq '.average_score' code_review/report.json)" >> $GITHUB_ENV
+
+        env:
+          CODE_QUALITY: ${{ env.SCORE }}
+          BADGE_PATH: .github/badges/code_quality.svg
+          BRANCH: main
+      
+        # Create the directory where badges will be saved, if needed
+      - name: Create destination directory
+        env:
+          BADGE_PATH: .github/badges/code_quality.svg
+        run: mkdir -p "${BADGE_PATH%/*}"
+
+        # Use the output from the `coverage` step
+      - name: Generate the badge SVG image
+        uses: emibcn/badge-action@v1
+        id: badge
+        with:
+          label: 'Code quality'
+          status: ${{ env.SCORE }}
+          color: 'blue'
+          path: .github/badges/code_quality.svg
+
+      - name: Upload badge as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: badge
+          path: .github/badges/code_quality.svg
+          if-no-files-found: ignore
+
       - name: Committing the logs to the repo
         run: |
           git config --global user.name "$(git log -n 1 --pretty=format:%an)"
           git config --global user.email "$(git log -n 1 --pretty=format:%ae)"
           git pull
-          git add code_review/report.txt code_review/report.json
+          git add code_review/report.txt code_review/report.json .github/badges/code_quality.svg
           git checkout main
           git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
           git push

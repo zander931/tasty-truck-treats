@@ -1,3 +1,5 @@
+![badge](.github/badges/code_quality.svg) 
+
 # 🧑‍💻 Sigma Labs Coursework
 
 ## 🛠️ Getting Setup
