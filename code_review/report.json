@@ -1,0 +1,78 @@
+{
+ "files": [
+  {
+   "file_name": "./js.js",
+   "errors": [
+    "1:1   warning  Unexpected console statement  no-console",
+    "1:26  error    Missing semicolon             semi"
+   ],
+   "score": 0
+  },
+  {
+   "file_name": "./react_test/my-app/src/index.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/my-app/src/App.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/my-app/src/reportWebVitals.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/my-app/src/setupTests.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/meal-counter/src/index.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/meal-counter/src/Counter.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/meal-counter/src/App.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/meal-counter/src/reportWebVitals.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/meal-counter/src/setupTests.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/potions-class/src/index.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/potions-class/src/data.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/potions-class/src/App.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./react_test/potions-class/src/setupTests.js",
+   "errors": [],
+   "score": 100.0
+  }
+ ],
+ "average_score": 92.9
+}

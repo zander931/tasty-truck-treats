@@ -1,0 +1,22 @@
+./js.js
+
+/home/runner/work/Coursework-Template/Coursework-Template/js.js
+  1:1   warning  Unexpected console statement  no-console
+  1:26  error    Missing semicolon             semi
+
+✖ 2 problems (1 error, 1 warning)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+
+./react_test/my-app/src/index.js
+./react_test/my-app/src/App.js
+./react_test/my-app/src/reportWebVitals.js
+./react_test/my-app/src/setupTests.js
+./react_test/meal-counter/src/index.js
+./react_test/meal-counter/src/Counter.js
+./react_test/meal-counter/src/App.js
+./react_test/meal-counter/src/reportWebVitals.js
+./react_test/meal-counter/src/setupTests.js
+./react_test/potions-class/src/index.js
+./react_test/potions-class/src/data.js
+./react_test/potions-class/src/App.js
+./react_test/potions-class/src/setupTests.js
