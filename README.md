@@ -11,7 +11,7 @@
 
 Before starting your coursework, you must click the buttons shown below on your cloned repository.
 
-<img width="500px" src="https://i.imgur.com/eGyISm9.png" />
+<img width="700px" src="https://i.imgur.com/eGyISm9.png" />
 
 You are now ready to clone this repo and work on this coursework locally. Remember to commit and push your changes often!
 
