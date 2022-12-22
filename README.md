@@ -1,6 +1,6 @@
-[![badge](./.github/badges/code_quality.svg)](./code_review/report.json)
-
 # 🧑‍💻 Sigma Labs Coursework
+
+[![badge](./.github/badges/code_quality.svg)](./code_review/report.json)
 
 ## 🛠️ Getting Setup
 
