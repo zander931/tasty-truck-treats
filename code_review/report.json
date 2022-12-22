@@ -1,19 +1,79 @@
 {
  "files": [
   {
-   "file_name": "./tests_delete_me/test.js",
+   "file_name": "./REACT_TEST/my-app/src/index.js",
    "errors": [
-    "1:1   error  Unexpected var, use let or const instead         no-var",
-    "1:5   error  'unused' is assigned a value but never used      no-unused-vars",
-    "1:18  error  Missing semicolon                                semi",
-    "2:7   error  Identifier 'camel_case' is not in camel case     camelcase",
-    "2:7   error  'camel_case' is assigned a value but never used  no-unused-vars",
-    "2:25  error  Missing semicolon                                semi",
-    "3:7   error  'ben' is assigned a value but never used         no-unused-vars",
-    "3:27  error  Missing semicolon                                semi"
+    "4:8  warning  'App' is defined but never used  no-unused-vars"
    ],
-   "score": 0
+   "score": 93.3
+  },
+  {
+   "file_name": "./REACT_TEST/my-app/src/App.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/my-app/src/reportWebVitals.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/my-app/src/setupTests.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/meal-counter/src/index.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/meal-counter/src/Counter.js",
+   "errors": [
+    "1:17  warning  'useState' is defined but never used  no-unused-vars"
+   ],
+   "score": 91.7
+  },
+  {
+   "file_name": "./REACT_TEST/meal-counter/src/App.js",
+   "errors": [
+    "1:8  warning  'logo' is defined but never used  no-unused-vars"
+   ],
+   "score": 98.7
+  },
+  {
+   "file_name": "./REACT_TEST/meal-counter/src/reportWebVitals.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/meal-counter/src/setupTests.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/potions-class/src/index.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/potions-class/src/data.js",
+   "errors": [],
+   "score": 100.0
+  },
+  {
+   "file_name": "./REACT_TEST/potions-class/src/App.js",
+   "errors": [
+    "2:27  warning  'useEffect' is defined but never used                 no-unused-vars",
+    "29:9   warning  'newStudentHouse' is assigned a value but never used  no-unused-vars"
+   ],
+   "score": 96.8
+  },
+  {
+   "file_name": "./REACT_TEST/potions-class/src/setupTests.js",
+   "errors": [],
+   "score": 100.0
   }
  ],
- "average_score": 0.0
+ "average_score": 98.5
 }
