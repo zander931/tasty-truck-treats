@@ -66,6 +66,16 @@ jobs:
           CODE_QUALITY: ${{ env.SCORE }}
           BADGE_PATH: .github/badges/code_quality.svg
           BRANCH: main
+      
+      - name: Obtain total_errors from JSON
+        id: total_errors
+        run: |
+          echo "ERRORS=$(python .utils/create_error_badge.py)" >> $GITHUB_ENV
+
+        env:
+          CODE_QUALITY: ${{ env.ERRORS }}
+          BADGE_PATH: .github/badges/total_errors.svg
+          BRANCH: main
 
         # Create the directory where badges will be saved, if needed
       - name: Create destination directory for badge
@@ -83,6 +93,16 @@ jobs:
           color: 'blue'
           path: .github/badges/code_quality.svg
           scale: 1.5
+      
+      - name: Generate the badge SVG image
+        uses: emibcn/badge-action@v1
+        id: badge
+        with:
+          label: 'Total Errors: '
+          status: ${{ format(env.ERRORS) }}
+          color: 'blue'
+          path: .github/badges/total_errors.svg
+          scale: 1.5
 
       - name: Upload badge as artifact
         uses: actions/upload-artifact@v2
@@ -91,12 +111,19 @@ jobs:
           path: .github/badges/code_quality.svg
           if-no-files-found: ignore
 
+      - name: Upload badge as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: badge
+          path: .github/badges/total_errors.svg
+          if-no-files-found: ignore
+
       - name: Committing logs and badge to the repository
         run: |
           git config --global user.name "$(git log -n 1 --pretty=format:%an)"
           git config --global user.email "$(git log -n 1 --pretty=format:%ae)"
           git pull
-          git add code_review/report.txt code_review/report.json .github/badges/code_quality.svg
+          git add code_review/report.txt code_review/report.json .github/badges/code_quality.svg .github/badges/total_errors.svg
           git checkout main
           git diff-index --quiet HEAD || git commit -am "deploy workflow logs"
           git push
