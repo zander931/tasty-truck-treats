@@ -1,0 +1,13 @@
+{
+ "files": [
+  {
+   "file_name": "./test.js",
+   "errors": [
+    "1:1   warning  Unexpected console statement                   no-console",
+    "1:18  error    Newline required at end of file but not found  eol-last"
+   ],
+   "score": 0
+  }
+ ],
+ "average_score": 0.0
+}
