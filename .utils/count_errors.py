@@ -18,11 +18,11 @@ def obtain_errors(files_list):
     total_errors = 0
     for files in files_list:
         errors = len(files.get('errors'))
-        total_errors = total_errors + errors
+        total_errors += errors
 
     return total_errors
 
 if __name__ == "__main__":
     files_list = read_json('code_review/report.json')
     total_errors = obtain_errors(files_list)
-    print(total_errors)
+    print(total_errors) #needed for saving to badge

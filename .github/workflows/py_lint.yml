@@ -53,7 +53,7 @@ jobs:
       - name: Obtain total_errors from JSON
         id: total_errors
         run: |
-          echo "ERRORS=$(python .utils/create_error_badge.py)" >> $GITHUB_ENV
+          echo "ERRORS=$(python .utils/count_errors.py)" >> $GITHUB_ENV
 
         env:
           CODE_QUALITY: ${{ env.ERRORS }}
