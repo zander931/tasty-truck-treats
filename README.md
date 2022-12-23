@@ -1,4 +1,5 @@
 [![badge](./.github/badges/code_quality.svg)](./code_review/report.json)
+[![badge](./.github/badges/total_errors.svg)](./code_review/report.json)
 
 # 🧑‍💻 Sigma Labs Coursework
 
