@@ -12,7 +12,7 @@ def read_json(json_path):
     
     return files_list
 
-
+ 
 def obtain_errors(files_list):
     """Loop through the report of each file and count the total number of errors for all files"""
     total_errors = 0
