@@ -1,7 +1,0 @@
-./test.js
-
-/home/runner/work/Coursework-Template/Coursework-Template/test.js
-  1:1  warning  Unexpected console statement  no-console
-
-✖ 1 problem (0 errors, 1 warning)
-
