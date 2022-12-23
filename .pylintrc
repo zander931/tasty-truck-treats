@@ -1,9 +1,3 @@
-
-############# This is a custom .pylintrc file 
-############# You can also use .pylintrc configs from Google: https://github.com/google/styleguide/blob/gh-pages/pylintrc #############
-
-
-
 [MAIN]
 
 # Specify a configuration file.
