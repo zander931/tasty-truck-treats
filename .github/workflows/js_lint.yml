@@ -86,7 +86,7 @@ jobs:
         # Use the output from the `average_score` step
       - name: Generate the badge SVG image
         uses: emibcn/badge-action@v1
-        id: badge
+        id: quality_badge
         with:
           label: 'Code Quality Score: '
           status: ${{ format('{0}/100', env.SCORE) }}
@@ -96,7 +96,7 @@ jobs:
       
       - name: Generate the badge SVG image
         uses: emibcn/badge-action@v1
-        id: badge
+        id: error_badge
         with:
           label: 'Total Errors: '
           status: ${{ format(env.ERRORS) }}
