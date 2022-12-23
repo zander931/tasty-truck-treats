@@ -57,7 +57,7 @@ jobs:
         run: |
           python .utils/parse_raw_js.py
 
-      - name: Prepare environment
+      - name: Obtain average_score from JSON
         id: average_score
         run: |
           echo "SCORE=$(jq '.average_score' code_review/report.json)" >> $GITHUB_ENV
@@ -68,12 +68,12 @@ jobs:
           BRANCH: main
 
         # Create the directory where badges will be saved, if needed
-      - name: Create destination directory
+      - name: Create destination directory for badge
         env:
           BADGE_PATH: .github/badges/code_quality.svg
         run: mkdir -p "${BADGE_PATH%/*}"
 
-        # Use the output from the `coverage` step
+        # Use the output from the `average_score` step
       - name: Generate the badge SVG image
         uses: emibcn/badge-action@v1
         id: badge
@@ -91,7 +91,7 @@ jobs:
           path: .github/badges/code_quality.svg
           if-no-files-found: ignore
 
-      - name: Committing the logs to the repo
+      - name: Committing logs and badge to the repository
         run: |
           git config --global user.name "$(git log -n 1 --pretty=format:%an)"
           git config --global user.email "$(git log -n 1 --pretty=format:%ae)"

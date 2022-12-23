@@ -275,13 +275,6 @@ bad-names=foo,bar,baz,toto,tutu,tata
 ; name-group=
 
 
-########################## pylint will check for consistent naming usage and call it out ##################################
-
-#snake_case regex (?P<snake_case>[a-z_]+)
-#PascalCase regex (?P<PascalCase>[^a-z][A-Za-z]+)
-#camelCase regex (?P<camelCase>[^A-Z][A-Za-z]+)
-#UPPER_CASE regex (?P<UPPER_CASE>[A-Z_]+)
-# Combine as seen in examples below
 # Include a hint for the correct naming format with invalid-name
 include-naming-hint=no
 
@@ -317,10 +310,10 @@ attr-rgx= (?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCa
 argument-rgx= (?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$
 
 # Naming style matching correct class attribute names.
-; class-attribute-naming-style=PascalCase
+class-attribute-naming-style=PascalCase
 
 # Regular expression matching correct class attribute names
-class-attribute-rgx=(?:(?P<PascalCase>[^a-z][A-Za-z]+))$
+; class-attribute-rgx=(?:(?P<PascalCase>[^a-z][A-Za-z]+))$
 
 # Naming style matching correct class constant names.
 ; class-const-naming-style=UPPER_CASE
