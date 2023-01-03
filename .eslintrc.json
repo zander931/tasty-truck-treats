@@ -1,4 +1,7 @@
 {
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "extends": ["airbnb", "airbnb/hooks", "plugin:react/recommended"],
   "plugins": ["react"],
   "rules": { "semi": "off", "no-undef": "off" }

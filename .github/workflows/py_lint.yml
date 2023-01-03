@@ -102,6 +102,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Committing logs and badge to the repository
+        if: github.repository != 'sigma-labs-xyz/coursework-template'
         run: |
           git config --global user.name "$(git log -n 1 --pretty=format:%an)"
           git config --global user.email "$(git log -n 1 --pretty=format:%ae)"
