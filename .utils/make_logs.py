@@ -1,6 +1,5 @@
 import os
 
-
 def make_or_replace_dir(directory_path: str) -> bool:
     """Will create a directory if it does not already exist
 

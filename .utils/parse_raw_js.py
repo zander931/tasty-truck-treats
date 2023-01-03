@@ -12,18 +12,28 @@ def split_on_new_line(content: str) -> list:
 
     Returns
     -------
-    List[str]
-        List of error messages
+    split_on_file_name: list
+        List of file_info, split my each different file
     """
-    # split_on_error = r'\d+\serrors.and\s\d+\swarning.*\n\n'
-    # split_content_on_error = re.split(split_on_error,content)
+
     file_path_regex = r'(?<!")(\.{1}\/.*js)(?!")'
     split_on_file_name = re.split(file_path_regex, content)
-
     return split_on_file_name
 
 
 def obtain_errors(file_info: list) -> list:
+    """Obtains the errors for each file
+
+    Parameters
+    ----------
+    file_info : str
+        Reported errors of each file
+
+    Returns
+    -------
+    error_list : list
+        List of error messages
+    """
     error_regex = r"\s*(\d+:\d+.*)"
     error_list = re.findall(error_regex, file_info)
     return error_list
@@ -56,7 +66,7 @@ def get_errors_warnings(error_message: str) -> dict:
     return dict(errors=error_count, warnings=warning_count)
 
 
-def count_statements(file_name: str, statements_list) -> int:
+def count_statements(file_path: str, statements_list: list) -> int:
     """Will count the lines of code for the relevant file, ignoring comments, docstrings and blank lines
 
     Parameters
@@ -64,14 +74,17 @@ def count_statements(file_name: str, statements_list) -> int:
     file_path : str
         The path of the file that will be counted
 
+    statements_list : list
+        A statement is equal to a line of code, not including comments, docstrings and blank lines
+        The past statements are kept track of incase a file cannot be read to count its lines of code
     Returns
     -------
-    num_of_statements : str
+    num_of_statements : int
         The lines of code count ignoring comments, docstrings and blank lines
     """
 
     try:
-        with open(file_name) as file:
+        with open(file_path,encoding='utf-8') as file:
             content = file.read()
 
         num_of_statements = 0
@@ -105,18 +118,22 @@ def count_statements(file_name: str, statements_list) -> int:
     return num_of_statements
 
 
-def get_score(errors_warnings: dict, file_path: str, statements_list) -> float:
-    """Will count the lines of code for the relevant file, ignoring comments, docstrings and blank lines
+def get_score(errors_warnings: dict, file_path: str, statements_list: list) -> float:
+    """Calculate the score of the code, based on the number of statements, errors and warnings
 
     Parameters
     ----------
     errors_warnings : dict
         A dictionary containing errors and warnings of the file
+    file_path : str
+        A string containing the file_path of the file being evaluated
+    statements_list : list
+        A list tracking all past count of statements for each file
 
     Returns
     -------
-    num_of_statements : str
-        The lines of code count ignoring comments, docstrings and blank lines
+    evaluation : float
+        A score calculated from statements, errors and warnings
     """
 
     statements = count_statements(file_path, statements_list)
@@ -139,7 +156,7 @@ def parse_split_content(split_content: list) -> dict:
 
     Returns
     -------
-    dict
+    files_dict: dict
         dictionary containing key info about the file in question:
         - file_name: the file name
         - error_list: a list of the errors picked up on
