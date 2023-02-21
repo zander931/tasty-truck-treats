@@ -1,8 +1,11 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/macos,git
-# Edit at https://www.toptal.com/developers/gitignore?templates=macos,git
-
 ## DANGER: DO NOT EDIT ##
+## DANGER: DO NOT EDIT ##
+## DANGER: DO NOT EDIT ##
+## DANGER: DO NOT EDIT ##
+## DANGER: DO NOT EDIT ##
+
+## THIS SHOULD BE ADDED TO THE REPO BELOW AND THEN PULLED DOWN ##
+## https://github.com/Sigma-Labs-XYZ/Coursework-Template ##
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -82,3 +85,4 @@ package-lock.json
 __pycache__
 .ipynb_checkpoints
 venv/
+.pytest_cache
