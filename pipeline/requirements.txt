@@ -1,0 +1,4 @@
+boto3
+openpxyl
+pandas
+redshift_connector
