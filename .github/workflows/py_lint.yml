@@ -27,10 +27,10 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: Set up Python 3.8
+      - name: Set up Python 3.10
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
+          python-version: 3.10
           cache: 'pip'
 
       - name: Install dependencies
@@ -61,7 +61,7 @@ jobs:
           CODE_QUALITY: ${{ env.SCORE }}
           BADGE_PATH: .github/badges/code_quality.svg
           BRANCH: main
-      
+
       - name: Obtain total_errors from JSON
         id: total_errors
         run: |
@@ -88,7 +88,7 @@ jobs:
           color: 'blue'
           path: .github/badges/code_quality.svg
           scale: 1.5
-      
+
       - name: Generate the badge SVG image
         uses: emibcn/badge-action@v1
         id: error_badge
