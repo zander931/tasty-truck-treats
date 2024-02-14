@@ -30,7 +30,7 @@ jobs:
       - name: Set up Python 3.11
         uses: actions/setup-python@v3
         with:
-          python-version: 3.11
+          python-version: '3.11'
           cache: 'pip'
 
       - name: Install dependencies
@@ -52,5 +52,5 @@ jobs:
           git pull
           git add coding_problems/coding-problems-report.json
           git checkout main
-          git diff-index --quiet HEAD || git commit -am "deploy pytest logs"
+          git diff-index --quiet HEAD || git commit -am "Update Coding Problem Scores"
           git push
