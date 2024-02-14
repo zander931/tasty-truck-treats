@@ -120,5 +120,5 @@ jobs:
           git pull
           git add code_review/report.txt code_review/report.json .github/badges/code_quality.svg .github/badges/total_errors.svg
           git checkout main
-          git diff-index --quiet HEAD || git commit -am "Update Code Quality Scores"
+          git diff-index --quiet HEAD || git commit -am "SigmaBot: Update Code Quality Scores"
           git push
