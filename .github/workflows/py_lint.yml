@@ -111,6 +111,7 @@ jobs:
           name: badge
           path: .github/badges/total_errors.svg
           if-no-files-found: ignore
+          overwrite: true
 
       - name: Committing logs and badge to the repository
         if: github.repository != 'sigma-labs-xyz/coursework-template'
