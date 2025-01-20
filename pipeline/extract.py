@@ -1,13 +1,13 @@
 import re
 import logging
 import pandas as pd
-import os
 from os import environ as ENV
 import argparse
 from boto3 import client
 from dotenv import load_dotenv
 
 from logger_config import setup_logging
+from transform import combine_transaction_data_files, clean_truck_data
 
 
 def parse_args():
@@ -61,37 +61,6 @@ def check_objects(objects: list[str]) -> bool:
     return new_contents
 
 
-def collate_trans_data(files: list[str]):
-    """Collate transactional data to a csv file."""
-
-    truck_hist_df = []
-    for f in files:
-        filename = f.split('/')[1]
-        file_path = os.path.join("historical_data/", filename)
-        try:
-            df = pd.read_parquet(file_path)
-
-            match = re.match(r'^historical/TRUCK_DATA_HIST_(\d+)\.parquet$', f)
-            truck_id = match.group(1)
-            df['truck_id'] = truck_id
-
-            truck_hist_df.append(df)
-            os.remove(file_path)
-            logging.info(f"File '{filename}' deleted.")
-        except Exception as e:
-            logging.error("%s", e)
-            continue
-
-    if not truck_hist_df:
-        logging.error("No data files were loaded.")
-        return
-
-    combined_df = pd.concat(truck_hist_df, ignore_index=True)
-    combined_df.to_csv("historical_data/truck_hist_combined.csv", index=False)
-    logging.info(
-        "Combined transactional data saved to 'truck_hist_combined.csv'")
-
-
 if __name__ == "__main__":
 
     # Configuration
@@ -104,4 +73,6 @@ if __name__ == "__main__":
     contents = list_objects(s3, args.bucket)
     new_contents = check_objects(contents)
     download_truck_data_files(s3, args.bucket, new_contents)
-    collate_trans_data(new_contents)
+
+    combine_transaction_data_files(new_contents)
+    clean_truck_data()
