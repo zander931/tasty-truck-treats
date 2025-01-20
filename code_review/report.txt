@@ -8,11 +8,12 @@ Your code has been rated at 6.00/10
 
 ./pipeline/transform.py
 ************* Module transform
-pipeline/transform.py:1:0: W0612: Unused variable 'pd' (unused-variable)
-pipeline/transform.py:1:0: W0611: Unused pandas imported as pd (unused-import)
+pipeline/transform.py:26:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+pipeline/transform.py:8:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)
+pipeline/transform.py:41:0: W0612: Unused variable 'clean_truck_data' (unused-variable)
 
 -----------------------------------
-Your code has been rated at 6.00/10
+Your code has been rated at 9.23/10
 
 ./pipeline/logger_config.py
 ************* Module logger_config
@@ -29,8 +30,9 @@ pipeline/extract.py:30:4: C0103: Variable name "s3" doesn't conform to '(?:(?P<s
 pipeline/extract.py:36:17: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
 pipeline/extract.py:43:30: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
 pipeline/extract.py:47:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
-pipeline/extract.py:80:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+pipeline/extract.py:3:0: W0612: Unused variable 'pd' (unused-variable)
+pipeline/extract.py:3:0: W0611: Unused pandas imported as pd (unused-import)
 
 -----------------------------------
-Your code has been rated at 9.06/10
+Your code has been rated at 8.37/10
 
