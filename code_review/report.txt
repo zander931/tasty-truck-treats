@@ -6,14 +6,6 @@ pipeline/load.py:1:0: W0611: Unused import redshift_connector (unused-import)
 -----------------------------------
 Your code has been rated at 6.00/10
 
-./pipeline/extract.py
-************* Module extract
-pipeline/extract.py:1:0: W0612: Unused variable 'client' (unused-variable)
-pipeline/extract.py:1:0: W0611: Unused client imported from boto3 (unused-import)
-
------------------------------------
-Your code has been rated at 6.00/10
-
 ./pipeline/transform.py
 ************* Module transform
 pipeline/transform.py:1:0: W0612: Unused variable 'pd' (unused-variable)
@@ -21,4 +13,24 @@ pipeline/transform.py:1:0: W0611: Unused pandas imported as pd (unused-import)
 
 -----------------------------------
 Your code has been rated at 6.00/10
+
+./pipeline/logger_config.py
+************* Module logger_config
+pipeline/logger_config.py:20:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+pipeline/logger_config.py:6:0: W0612: Unused variable 'setup_logging' (unused-variable)
+
+-----------------------------------
+Your code has been rated at 7.78/10
+
+./pipeline/extract.py
+************* Module extract
+pipeline/extract.py:28:0: C0103: Function name "connect_to_s3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
+pipeline/extract.py:30:4: C0103: Variable name "s3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
+pipeline/extract.py:36:17: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
+pipeline/extract.py:43:30: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
+pipeline/extract.py:47:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+pipeline/extract.py:80:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+
+-----------------------------------
+Your code has been rated at 9.06/10
 
