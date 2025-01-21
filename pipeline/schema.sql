@@ -1,5 +1,6 @@
 -- This file should contain table definitions for the database.
 
+-- DDL
 DROP TABLE IF EXISTS FACT_Transaction;
 DROP TABLE IF EXISTS DIM_Truck;
 DROP TABLE IF EXISTS DIM_Payment_Method;
@@ -26,3 +27,8 @@ CREATE TABLE IF NOT EXISTS FACT_Transaction (
     FOREIGN KEY (truck_id) REFERENCES DIM_Truck(truck_id),
     FOREIGN KEY (payment_method_id) REFERENCES DIM_Payment_Method(payment_method_id)
 );
+
+SHOW TABLES;
+
+-- DML
+INSERT INTO 

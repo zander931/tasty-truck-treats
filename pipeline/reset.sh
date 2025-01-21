@@ -1,2 +1,3 @@
-source .env
-mysql -u $DB_USER -p$DB_PASSWORD -h $DB_HOST -P $DB_PORT $DB_NAME -f $1
+source ../.env
+export MYSQL_PWD=$DB_PASSWORD
+mysql -u $DB_USER -h $DB_HOST -P $DB_PORT $DB_NAME < $1
