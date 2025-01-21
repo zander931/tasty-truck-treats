@@ -11,11 +11,11 @@
   {
    "file_name": "./pipeline/transform.py",
    "errors": [
-    "pipeline/transform.py:26:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
+    "pipeline/transform.py:27:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
     "pipeline/transform.py:8:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)",
-    "pipeline/transform.py:41:0: W0612: Unused variable 'clean_truck_data' (unused-variable)"
+    "pipeline/transform.py:42:0: W0612: Unused variable 'clean_truck_data' (unused-variable)"
    ],
-   "score": 92.3
+   "score": 92.5
   },
   {
    "file_name": "./pipeline/logger_config.py",
@@ -26,18 +26,31 @@
    "score": 77.8
   },
   {
+   "file_name": "./pipeline/pipeline.py",
+   "errors": [
+    "pipeline/pipeline.py:4:0: W0612: Unused variable 'logging' (unused-variable)",
+    "pipeline/pipeline.py:6:0: W0612: Unused variable 'ENV' (unused-variable)",
+    "pipeline/pipeline.py:4:0: W0611: Unused import logging (unused-import)",
+    "pipeline/pipeline.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)"
+   ],
+   "score": 82.6
+  },
+  {
    "file_name": "./pipeline/extract.py",
    "errors": [
-    "pipeline/extract.py:28:0: C0103: Function name \"connect_to_s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:30:4: C0103: Variable name \"s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:36:17: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:43:30: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:47:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
-    "pipeline/extract.py:3:0: W0612: Unused variable 'pd' (unused-variable)",
-    "pipeline/extract.py:3:0: W0611: Unused pandas imported as pd (unused-import)"
+    "pipeline/extract.py:7:0: C0103: Function name \"connect_to_s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
+    "pipeline/extract.py:9:4: C0103: Variable name \"s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
+    "pipeline/extract.py:15:17: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
+    "pipeline/extract.py:18:18: R6102: Consider using an in-place tuple instead of list (consider-using-tuple)",
+    "pipeline/extract.py:25:30: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
+    "pipeline/extract.py:29:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
+    "pipeline/extract.py:7:0: W0612: Unused variable 'connect_to_s3' (unused-variable)",
+    "pipeline/extract.py:15:0: W0612: Unused variable 'list_objects' (unused-variable)",
+    "pipeline/extract.py:25:0: W0612: Unused variable 'download_truck_data_files' (unused-variable)",
+    "pipeline/extract.py:35:0: W0612: Unused variable 'check_objects' (unused-variable)"
    ],
-   "score": 83.7
+   "score": 65.5
   }
  ],
- "average_score": 78.5
+ "average_score": 75.7
 }
