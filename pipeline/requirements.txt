@@ -6,3 +6,4 @@ argparse
 python-dotenv
 pyarrow
 plotly.express
+nbformat
