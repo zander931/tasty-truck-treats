@@ -10,6 +10,8 @@
 ### Git ###
 # Created by git for backups. To disable backups in Git:
 # $ git config --global merge tool.keepBackup false
+.env
+data/
 *.orig
 
 # Created by git when using merge tools for conflicts
