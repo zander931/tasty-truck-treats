@@ -11,9 +11,10 @@ def combine_transaction_data_files(files: list[str]):
     Produces a single combined file in the data/ folder."""
 
     truck_hist_df = []
+    files = [file for file in files if '.parquet' in file]
     for f in files:
         filename = f.split('/')[1]
-        file_path = os.path.join("historical_data/", filename)
+        file_path = os.path.join("data/", filename)
         try:
             df = pd.read_parquet(file_path)
 
@@ -33,7 +34,7 @@ def combine_transaction_data_files(files: list[str]):
         return
 
     combined_df = pd.concat(truck_hist_df, ignore_index=True)
-    combined_df.to_csv("historical_data/truck_hist_combined.csv", index=False)
+    combined_df.to_csv("data/truck_hist_combined.csv", index=False)
     logging.info(
         "Combined transactional data saved to 'truck_hist_combined.csv'")
 
@@ -41,15 +42,15 @@ def combine_transaction_data_files(files: list[str]):
 def clean_truck_data():
     """Cleans the transactional data in the .csv file."""
 
-    trucks = pd.read_csv('historical_data/truck_hist_combined.csv')
+    trucks = pd.read_csv('data/truck_hist_combined.csv')
     trucks['timestamp'] = pd.to_datetime(trucks['timestamp'])
     trucks['total'] = trucks['total'].replace(
         ['0', '0.00', 'VOID', 'blank', 'ERR'], np.nan)
     trucks = trucks.dropna(subset=['total'])
     trucks['total'] = trucks['total'].astype(float)
-    trucks.to_csv("historical_data/truck_hist_cleaned.csv", index=False)
+    trucks.to_csv("data/truck_hist_cleaned.csv", index=False)
     logging.info("Historical data cleaned.")
-    os.remove('historical_data/truck_hist_combined.csv')
+    os.remove('data/truck_hist_combined.csv')
     logging.info("Raw data deleted.")
 
 
