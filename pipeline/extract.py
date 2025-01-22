@@ -1,4 +1,5 @@
 """A script that extracts data from an S3."""
+# pylint: disable=C0103
 
 import re
 import logging
