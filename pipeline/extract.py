@@ -17,7 +17,7 @@ def connect_to_s3():
 def list_objects(s3_client, bucket_name: str) -> list[str]:
     """Returns a list of object names in a specific bucket."""
     all_objects = []
-    for prefix in ['historical/', 'metadata/']:
+    for prefix in ('historical/', 'metadata/'):
         response = s3_client.list_objects_v2(Bucket=bucket_name, Prefix=prefix)
         if 'Contents' in response:
             all_objects.extend(response['Contents'])
