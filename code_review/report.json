@@ -1,41 +1,6 @@
 {
  "files": [
   {
-   "file_name": "./pipeline/load.py",
-   "errors": [
-    "pipeline/load.py:1:0: W0612: Unused variable 'redshift_connector' (unused-variable)",
-    "pipeline/load.py:1:0: W0611: Unused import redshift_connector (unused-import)"
-   ],
-   "score": 60.0
-  },
-  {
-   "file_name": "./pipeline/transform.py",
-   "errors": [
-    "pipeline/transform.py:27:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
-    "pipeline/transform.py:8:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)",
-    "pipeline/transform.py:42:0: W0612: Unused variable 'clean_truck_data' (unused-variable)"
-   ],
-   "score": 92.5
-  },
-  {
-   "file_name": "./pipeline/logger_config.py",
-   "errors": [
-    "pipeline/logger_config.py:20:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
-    "pipeline/logger_config.py:6:0: W0612: Unused variable 'setup_logging' (unused-variable)"
-   ],
-   "score": 77.8
-  },
-  {
-   "file_name": "./pipeline/pipeline.py",
-   "errors": [
-    "pipeline/pipeline.py:4:0: W0612: Unused variable 'logging' (unused-variable)",
-    "pipeline/pipeline.py:6:0: W0612: Unused variable 'ENV' (unused-variable)",
-    "pipeline/pipeline.py:4:0: W0611: Unused import logging (unused-import)",
-    "pipeline/pipeline.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)"
-   ],
-   "score": 82.6
-  },
-  {
    "file_name": "./pipeline/extract.py",
    "errors": [
     "pipeline/extract.py:7:0: C0103: Function name \"connect_to_s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
@@ -50,7 +15,46 @@
     "pipeline/extract.py:35:0: W0612: Unused variable 'check_objects' (unused-variable)"
    ],
    "score": 65.5
+  },
+  {
+   "file_name": "./pipeline/pipeline.py",
+   "errors": [
+    "pipeline/pipeline.py:4:0: W0612: Unused variable 'logging' (unused-variable)",
+    "pipeline/pipeline.py:6:0: W0612: Unused variable 'ENV' (unused-variable)",
+    "pipeline/pipeline.py:4:0: W0611: Unused import logging (unused-import)",
+    "pipeline/pipeline.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)"
+   ],
+   "score": 82.6
+  },
+  {
+   "file_name": "./pipeline/transform.py",
+   "errors": [
+    "pipeline/transform.py:30:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
+    "pipeline/transform.py:11:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)",
+    "pipeline/transform.py:45:0: W0612: Unused variable 'clean_truck_data' (unused-variable)",
+    "pipeline/transform.py:6:0: W0612: Unused variable 'ENV' (unused-variable)",
+    "pipeline/transform.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)"
+   ],
+   "score": 88.4
+  },
+  {
+   "file_name": "./pipeline/load.py",
+   "errors": [
+    "pipeline/load.py:56:28: E0602: Undefined variable 'load_truck_data' (undefined-variable)",
+    "pipeline/load.py:10:0: W0612: Unused variable 'get_db_connection' (unused-variable)",
+    "pipeline/load.py:5:0: W0612: Unused variable 'datetime' (unused-variable)",
+    "pipeline/load.py:5:0: W0611: Unused datetime imported from datetime (unused-import)"
+   ],
+   "score": 46.7
+  },
+  {
+   "file_name": "./pipeline/logger_config.py",
+   "errors": [
+    "pipeline/logger_config.py:20:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
+    "pipeline/logger_config.py:6:0: W0612: Unused variable 'setup_logging' (unused-variable)"
+   ],
+   "score": 77.8
   }
  ],
- "average_score": 75.7
+ "average_score": 72.2
 }

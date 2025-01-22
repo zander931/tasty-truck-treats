@@ -1,38 +1,3 @@
-./pipeline/load.py
-************* Module load
-pipeline/load.py:1:0: W0612: Unused variable 'redshift_connector' (unused-variable)
-pipeline/load.py:1:0: W0611: Unused import redshift_connector (unused-import)
-
------------------------------------
-Your code has been rated at 6.00/10
-
-./pipeline/transform.py
-************* Module transform
-pipeline/transform.py:27:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
-pipeline/transform.py:8:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)
-pipeline/transform.py:42:0: W0612: Unused variable 'clean_truck_data' (unused-variable)
-
------------------------------------
-Your code has been rated at 9.25/10
-
-./pipeline/logger_config.py
-************* Module logger_config
-pipeline/logger_config.py:20:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
-pipeline/logger_config.py:6:0: W0612: Unused variable 'setup_logging' (unused-variable)
-
------------------------------------
-Your code has been rated at 7.78/10
-
-./pipeline/pipeline.py
-************* Module pipeline
-pipeline/pipeline.py:4:0: W0612: Unused variable 'logging' (unused-variable)
-pipeline/pipeline.py:6:0: W0612: Unused variable 'ENV' (unused-variable)
-pipeline/pipeline.py:4:0: W0611: Unused import logging (unused-import)
-pipeline/pipeline.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)
-
------------------------------------
-Your code has been rated at 8.26/10
-
 ./pipeline/extract.py
 ************* Module extract
 pipeline/extract.py:7:0: C0103: Function name "connect_to_s3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
@@ -48,4 +13,43 @@ pipeline/extract.py:35:0: W0612: Unused variable 'check_objects' (unused-variabl
 
 -----------------------------------
 Your code has been rated at 6.55/10
+
+./pipeline/pipeline.py
+************* Module pipeline
+pipeline/pipeline.py:4:0: W0612: Unused variable 'logging' (unused-variable)
+pipeline/pipeline.py:6:0: W0612: Unused variable 'ENV' (unused-variable)
+pipeline/pipeline.py:4:0: W0611: Unused import logging (unused-import)
+pipeline/pipeline.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)
+
+-----------------------------------
+Your code has been rated at 8.26/10
+
+./pipeline/transform.py
+************* Module transform
+pipeline/transform.py:30:12: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+pipeline/transform.py:11:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)
+pipeline/transform.py:45:0: W0612: Unused variable 'clean_truck_data' (unused-variable)
+pipeline/transform.py:6:0: W0612: Unused variable 'ENV' (unused-variable)
+pipeline/transform.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)
+
+-----------------------------------
+Your code has been rated at 8.84/10
+
+./pipeline/load.py
+************* Module load
+pipeline/load.py:56:28: E0602: Undefined variable 'load_truck_data' (undefined-variable)
+pipeline/load.py:10:0: W0612: Unused variable 'get_db_connection' (unused-variable)
+pipeline/load.py:5:0: W0612: Unused variable 'datetime' (unused-variable)
+pipeline/load.py:5:0: W0611: Unused datetime imported from datetime (unused-import)
+
+-----------------------------------
+Your code has been rated at 4.67/10
+
+./pipeline/logger_config.py
+************* Module logger_config
+pipeline/logger_config.py:20:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
+pipeline/logger_config.py:6:0: W0612: Unused variable 'setup_logging' (unused-variable)
+
+-----------------------------------
+Your code has been rated at 7.78/10
 
