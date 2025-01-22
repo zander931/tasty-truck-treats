@@ -46,4 +46,8 @@ def download_truck_data_files(s3_client, bucket_name: str, objects: list[str]):
 
 
 if __name__ == "__main__":
-    pass
+
+    s3 = connect_to_s3()
+    contents = list_objects(s3, "sigma-resources-truck")
+    new_contents = check_objects(contents)
+    download_truck_data_files(s3, "sigma-resources-truck", new_contents)

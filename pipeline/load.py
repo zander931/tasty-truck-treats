@@ -13,6 +13,7 @@ def get_db_connection() -> Connection:
                            password=ENV['DB_PASSWORD'],
                            database=ENV['DB_NAME'],
                            port=int(ENV['DB_PORT']),
+                           local_infile=True,
                            cursorclass=pymysql.cursors.DictCursor)
 
 
@@ -20,16 +21,18 @@ def upload_transaction_data(conn: Connection):
     """Uploads transaction data to the database."""
 
     query = """
-        LOAD DATA LOCAL INFILE '{data/truck_hist_cleaned.csv}'
+        LOAD DATA LOCAL INFILE 'data/truck_hist_cleaned.csv'
         INTO TABLE FACT_Transaction
         FIELDS TERMINATED BY ','
         LINES TERMINATED BY '\n'
-        (truck_id, payment_method_id, total, at);
+        IGNORE 1 LINES
+        (at, payment_method_id, total, truck_id);
     """
     with conn.cursor() as cur:
         cur.execute(query)
-        conn.commit()
+    conn.commit()
 
 
 if __name__ == "__main__":
-    pass
+
+    upload_transaction_data(get_db_connection())

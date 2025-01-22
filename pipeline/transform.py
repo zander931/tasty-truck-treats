@@ -6,6 +6,8 @@ import logging
 import pandas as pd
 import numpy as np
 
+from extract import connect_to_s3, list_objects, check_objects, download_truck_data_files
+
 
 def combine_transaction_data_files(files: list[str]):
     """Loads and combines relevant files from the data/ folder.
@@ -59,4 +61,13 @@ def clean_truck_data():
 
 
 if __name__ == "__main__":
-    pass
+
+    # Extract
+    s3 = connect_to_s3()
+    contents = list_objects(s3, "sigma-resources-truck")
+    new_contents = check_objects(contents)
+    download_truck_data_files(s3, "sigma-resources-truck", new_contents)
+
+    # Transform
+    combine_transaction_data_files(new_contents)
+    clean_truck_data()
