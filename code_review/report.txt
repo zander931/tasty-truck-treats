@@ -1,18 +1,12 @@
 ./pipeline/load.py
-************* Module load
-pipeline/load.py:8:0: W0612: Unused variable 'get_db_connection' (unused-variable)
-pipeline/load.py:19:0: W0612: Unused variable 'upload_transaction_data' (unused-variable)
 
------------------------------------
-Your code has been rated at 8.33/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./pipeline/transform.py
-************* Module transform
-pipeline/transform.py:10:0: W0612: Unused variable 'combine_transaction_data_files' (unused-variable)
-pipeline/transform.py:44:0: W0612: Unused variable 'clean_truck_data' (unused-variable)
 
------------------------------------
-Your code has been rated at 9.52/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./pipeline/logger_config.py
 ************* Module logger_config
@@ -37,11 +31,7 @@ pipeline/extract.py:11:4: C0103: Variable name "s3" doesn't conform to '(?:(?P<s
 pipeline/extract.py:17:17: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
 pipeline/extract.py:20:18: R6102: Consider using an in-place tuple instead of list (consider-using-tuple)
 pipeline/extract.py:38:30: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-pipeline/extract.py:9:0: W0612: Unused variable 'connect_to_s3' (unused-variable)
-pipeline/extract.py:17:0: W0612: Unused variable 'list_objects' (unused-variable)
-pipeline/extract.py:27:0: W0612: Unused variable 'check_objects' (unused-variable)
-pipeline/extract.py:38:0: W0612: Unused variable 'download_truck_data_files' (unused-variable)
 
 -----------------------------------
-Your code has been rated at 6.90/10
+Your code has been rated at 8.44/10
 
