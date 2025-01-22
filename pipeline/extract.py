@@ -3,6 +3,7 @@
 
 import re
 import logging
+import os
 from os import environ as ENV
 from boto3 import client
 
@@ -39,6 +40,8 @@ def check_objects(objects: list[str]) -> bool:
 def download_truck_data_files(s3_client, bucket_name: str, objects: list[str]):
     """Downloads relevant files from S3 to a data/ folder."""
 
+    if not os.path.exists('data'):
+        os.makedirs('data')
     for o in objects:
         logging.info("Downloading from: %s", o)
         s3_client.download_file(
