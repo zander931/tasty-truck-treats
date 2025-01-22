@@ -17,7 +17,7 @@ def setup_logging(output: str, filename="t3.log", level=20):
             style="{",
             datefmt=log_datefmt
         )
-        logging.info(f"Logging to file: {filename}")
+        logging.info("Logging to file: %s", filename)
     else:
         logging.basicConfig(
             level=level,
@@ -26,3 +26,8 @@ def setup_logging(output: str, filename="t3.log", level=20):
             datefmt=log_datefmt
         )
         logging.info("Logging to console.")
+
+
+if __name__ == '__main__':
+
+    setup_logging("console")

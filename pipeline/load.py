@@ -1,6 +1,7 @@
 """A script that inserts bulk data efficiently."""
 
 from os import environ as ENV
+from dotenv import load_dotenv
 import pymysql.cursors
 from pymysql.connections import Connection
 
@@ -35,4 +36,5 @@ def upload_transaction_data(conn: Connection):
 
 if __name__ == "__main__":
 
+    load_dotenv()
     upload_transaction_data(get_db_connection())

@@ -3,7 +3,6 @@
 import argparse
 import logging
 from dotenv import load_dotenv
-from os import environ as ENV
 
 from logger_config import setup_logging
 from extract import connect_to_s3, list_objects, check_objects, download_truck_data_files
