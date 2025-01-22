@@ -27,12 +27,10 @@
   {
    "file_name": "./pipeline/pipeline.py",
    "errors": [
-    "pipeline/pipeline.py:4:0: W0612: Unused variable 'logging' (unused-variable)",
     "pipeline/pipeline.py:6:0: W0612: Unused variable 'ENV' (unused-variable)",
-    "pipeline/pipeline.py:4:0: W0611: Unused import logging (unused-import)",
     "pipeline/pipeline.py:6:0: W0611: Unused environ imported from os as ENV (unused-import)"
    ],
-   "score": 82.6
+   "score": 92.9
   },
   {
    "file_name": "./pipeline/extract.py",
@@ -41,14 +39,14 @@
     "pipeline/extract.py:11:4: C0103: Variable name \"s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
     "pipeline/extract.py:17:17: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
     "pipeline/extract.py:20:18: R6102: Consider using an in-place tuple instead of list (consider-using-tuple)",
-    "pipeline/extract.py:27:30: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
+    "pipeline/extract.py:38:30: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
     "pipeline/extract.py:9:0: W0612: Unused variable 'connect_to_s3' (unused-variable)",
     "pipeline/extract.py:17:0: W0612: Unused variable 'list_objects' (unused-variable)",
-    "pipeline/extract.py:27:0: W0612: Unused variable 'download_truck_data_files' (unused-variable)",
-    "pipeline/extract.py:37:0: W0612: Unused variable 'check_objects' (unused-variable)"
+    "pipeline/extract.py:27:0: W0612: Unused variable 'check_objects' (unused-variable)",
+    "pipeline/extract.py:38:0: W0612: Unused variable 'download_truck_data_files' (unused-variable)"
    ],
    "score": 69.0
   }
  ],
- "average_score": 81.6
+ "average_score": 83.6
 }
