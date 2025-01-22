@@ -2,13 +2,8 @@
  "files": [
   {
    "file_name": "./pipeline/extract.py",
-   "errors": [
-    "pipeline/extract.py:9:0: C0103: Function name \"connect_to_s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:11:4: C0103: Variable name \"s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:17:17: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract.py:38:30: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)"
-   ],
-   "score": 87.5
+   "errors": [],
+   "score": 100.0
   },
   {
    "file_name": "./pipeline/pipeline.py",
@@ -31,5 +26,5 @@
    "score": 100.0
   }
  ],
- "average_score": 97.5
+ "average_score": 100.0
 }
