@@ -8,3 +8,4 @@ pyarrow
 plotly.express
 nbformat
 pymysql
+pylint

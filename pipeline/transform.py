@@ -1,11 +1,10 @@
 """Functions that transform the data prior to uploading."""
 
+import os
+import re
+import logging
 import pandas as pd
 import numpy as np
-import os
-from os import environ as ENV
-import logging
-import re
 
 
 def combine_transaction_data_files(files: list[str]):
@@ -27,7 +26,7 @@ def combine_transaction_data_files(files: list[str]):
 
             truck_hist_df.append(df)
             os.remove(file_path)
-            logging.info(f"File '{filename}' deleted.")
+            logging.info("File '%s' deleted.", filename)
         except Exception as e:
             logging.error("%s", e)
             continue

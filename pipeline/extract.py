@@ -1,3 +1,5 @@
+"""A script that extracts data from an S3."""
+
 import re
 import logging
 from os import environ as ENV
@@ -26,7 +28,7 @@ def download_truck_data_files(s3_client, bucket_name: str, objects: list[str]):
     """Downloads relevant files from S3 to a data/ folder."""
 
     for o in objects:
-        logging.info(f"Downloading from: {o}")
+        logging.info("Downloading from: %s", o)
         s3_client.download_file(
             bucket_name, o, f"data/{o.split('/')[1]}")
         logging.info("Downloaded file: %s", o.split('/')[1])
