@@ -7,3 +7,4 @@ python-dotenv
 pyarrow
 plotly.express
 nbformat
+pymysql

@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS FACT_Transaction (
     transaction_id BIGINT PRIMARY KEY AUTO_INCREMENT,
     truck_id SMALLINT NOT NULL,
     payment_method_id SMALLINT NOT NULL,
-    total DECIMAL(3,2) NOT NULL,
+    total DECIMAL(5,2) NOT NULL,
     at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (truck_id) REFERENCES DIM_Truck(truck_id),
     FOREIGN KEY (payment_method_id) REFERENCES DIM_Payment_Method(payment_method_id)
