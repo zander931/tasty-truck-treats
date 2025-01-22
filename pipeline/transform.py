@@ -1,6 +1,9 @@
+"""Functions that transform the data prior to uploading."""
+
 import pandas as pd
 import numpy as np
 import os
+from os import environ as ENV
 import logging
 import re
 
@@ -48,6 +51,8 @@ def clean_truck_data():
         ['0', '0.00', 'VOID', 'blank', 'ERR'], np.nan)
     trucks = trucks.dropna(subset=['total'])
     trucks['total'] = trucks['total'].astype(float)
+    trucks = trucks[trucks['type'].isin(['cash', 'card'])]
+    trucks['type'] = trucks['type'].apply(lambda x: 1 if x == 'cash' else 2)
     trucks.to_csv("data/truck_hist_cleaned.csv", index=False)
     logging.info("Historical data cleaned.")
     os.remove('data/truck_hist_combined.csv')
