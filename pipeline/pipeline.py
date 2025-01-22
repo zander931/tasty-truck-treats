@@ -8,6 +8,7 @@ from os import environ as ENV
 from logger_config import setup_logging
 from extract import connect_to_s3, list_objects, check_objects, download_truck_data_files
 from transform import combine_transaction_data_files, clean_truck_data
+from load import get_db_connection, upload_transaction_data
 
 
 def parse_args():
@@ -35,9 +36,16 @@ if __name__ == "__main__":
     # Connect to s3 bucket, check relevant files and download
     s3 = connect_to_s3()
     contents = list_objects(s3, args.bucket)
-    print(contents)
     new_contents = check_objects(contents)
     download_truck_data_files(s3, args.bucket, new_contents)
 
+    # Transform data ready for insertion to the database
     combine_transaction_data_files(new_contents)
     clean_truck_data()
+
+    # Load into MySQL database
+    conn = get_db_connection()
+    logging.info("Successfully connected to T3 database.")
+    upload_transaction_data(conn)
+    logging.info("Successfully inserted transactional data into database.")
+    conn.close()

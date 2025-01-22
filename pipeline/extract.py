@@ -24,16 +24,6 @@ def list_objects(s3_client, bucket_name: str) -> list[str]:
     return [o["Key"] for o in all_objects]
 
 
-def download_truck_data_files(s3_client, bucket_name: str, objects: list[str]):
-    """Downloads relevant files from S3 to a data/ folder."""
-
-    for o in objects:
-        logging.info("Downloading from: %s", o)
-        s3_client.download_file(
-            bucket_name, o, f"data/{o.split('/')[1]}")
-        logging.info("Downloaded file: %s", o.split('/')[1])
-
-
 def check_objects(objects: list[str]) -> bool:
     """Check if the object is relevant to the project."""
 
@@ -43,6 +33,16 @@ def check_objects(objects: list[str]) -> bool:
         if re.match(pattern, o):
             new_contents.append(o)
     return new_contents
+
+
+def download_truck_data_files(s3_client, bucket_name: str, objects: list[str]):
+    """Downloads relevant files from S3 to a data/ folder."""
+
+    for o in objects:
+        logging.info("Downloading from: %s", o)
+        s3_client.download_file(
+            bucket_name, o, f"data/{o.split('/')[1]}")
+        logging.info("Downloaded file: %s", o.split('/')[1])
 
 
 if __name__ == "__main__":
