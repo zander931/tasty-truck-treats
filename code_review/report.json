@@ -6,6 +6,14 @@
    "score": 100.0
   },
   {
+   "file_name": "./pipeline/hiram_dashboard.py",
+   "errors": [
+    "pipeline/hiram_dashboard.py:24:9: E0606: Possibly using variable 'conn' before assignment (possibly-used-before-assignment)",
+    "pipeline/hiram_dashboard.py:40:25: E0606: Possibly using variable 'df' before assignment (possibly-used-before-assignment)"
+   ],
+   "score": 78.7
+  },
+  {
    "file_name": "./pipeline/pipeline.py",
    "errors": [],
    "score": 100.0
@@ -31,5 +39,5 @@
    "score": 100.0
   }
  ],
- "average_score": 100.0
+ "average_score": 97.0
 }
