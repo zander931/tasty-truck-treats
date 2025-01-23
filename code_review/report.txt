@@ -4,12 +4,9 @@
 Your code has been rated at 10.00/10
 
 ./pipeline/hiram_dashboard.py
-************* Module hiram_dashboard
-pipeline/hiram_dashboard.py:24:9: E0606: Possibly using variable 'conn' before assignment (possibly-used-before-assignment)
-pipeline/hiram_dashboard.py:40:25: E0606: Possibly using variable 'df' before assignment (possibly-used-before-assignment)
 
------------------------------------
-Your code has been rated at 7.87/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./pipeline/pipeline.py
 
