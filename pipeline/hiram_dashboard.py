@@ -21,7 +21,7 @@ def get_data(_conn: Connection) -> pd.DataFrame:
         FROM transaction_info ti
         JOIN DIM_Truck t USING(truck_id);
         """
-    with conn.cursor() as cur:
+    with _conn.cursor() as cur:
         cur.execute(query)
         rows = cur.fetchall()
     df = pd.DataFrame(rows, columns=[
@@ -32,14 +32,17 @@ def get_data(_conn: Connection) -> pd.DataFrame:
     return df
 
 
-def homepage():
+def homepage(df: pd.DataFrame):
+    """Setting up the homepage and defining filters."""
+
     st.title("T3 Financial Dashboard")
 
     st.sidebar.header("Filters")
     trucks = st.sidebar.multiselect(
         "Select Trucks", df['truck_name'].unique(), default=df['truck_name'].unique())
+    pay_meth_unique = df['payment_method'].unique()
     payment_methods = st.sidebar.multiselect(
-        "Select Payment Methods", df['payment_method'].unique(), default=df['payment_method'].unique())
+        "Select Payment Methods", pay_meth_unique, default=pay_meth_unique)
 
     min_datetime = df['at'].min().to_pydatetime()
     max_datetime = df['at'].max().to_pydatetime()
@@ -62,9 +65,11 @@ def homepage():
     ]
 
 
-def total_revenue_bar(filtered_df: pd.DataFrame) -> alt.Chart:
+def total_revenue_bar(df: pd.DataFrame) -> alt.Chart:
+    """Bar chart to show total revenue for each truck."""
+
     st.subheader("Total Revenue by Truck")
-    truck_revenue = filtered_df.groupby(['truck_name', 'payment_method'])[
+    truck_revenue = df.groupby(['truck_name', 'payment_method'])[
         'total'].sum().reset_index()
 
     return alt.Chart(truck_revenue).mark_bar().encode(
@@ -74,10 +79,12 @@ def total_revenue_bar(filtered_df: pd.DataFrame) -> alt.Chart:
     ).properties(width=800, height=500)
 
 
-def transactions_time(filtered_df: pd.DataFrame) -> alt.Chart:
+def transactions_time(df: pd.DataFrame) -> alt.Chart:
+    """Line chart to show count of transactions over time."""
+
     st.subheader("Transactions over Time")
-    filtered_df['date'] = filtered_df['at']
-    tot = filtered_df.groupby(['date', 'truck_name', 'payment_method'])[
+    df['date'] = df['at']
+    tot = df.groupby(['date', 'truck_name', 'payment_method'])[
         'total'].count().reset_index()
 
     return alt.Chart(tot).mark_line().encode(
@@ -87,9 +94,11 @@ def transactions_time(filtered_df: pd.DataFrame) -> alt.Chart:
     ).properties(width=800, height=500)
 
 
-def payment_method_pie(filtered_df: pd.DataFrame) -> alt.Chart:
+def payment_method_pie(df: pd.DataFrame) -> alt.Chart:
+    """Pie chart to show proportion of payment methods."""
+
     st.subheader("Payment Method Distribution")
-    pay_dist = filtered_df['payment_method'].value_counts().reset_index()
+    pay_dist = df['payment_method'].value_counts().reset_index()
     pay_dist['percentage'] = round(
         (pay_dist['count'] / pay_dist['count'].sum()) * 100, 2)
 
@@ -105,10 +114,12 @@ def payment_method_pie(filtered_df: pd.DataFrame) -> alt.Chart:
 if __name__ == '__main__':
 
     conn = get_db_connection()
-    df = get_data(conn)
+    data = get_data(conn)
 
-    filtered_df = homepage()
+    filtered_df = homepage(data)
 
     st.altair_chart(total_revenue_bar(filtered_df))
     st.altair_chart(transactions_time(filtered_df))
     st.altair_chart(payment_method_pie(filtered_df))
+
+    conn.close()
