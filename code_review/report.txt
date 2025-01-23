@@ -24,10 +24,7 @@ Your code has been rated at 10.00/10
 Your code has been rated at 10.00/10
 
 ./pipeline/truck_transactions_trial.py
-************* Module truck_transactions_trial
-pipeline/truck_transactions_trial.py:3:0: W0612: Unused variable 'alt' (unused-variable)
-pipeline/truck_transactions_trial.py:3:0: W0611: Unused altair imported as alt (unused-import)
 
------------------------------------
-Your code has been rated at 8.46/10
+------------------------------------
+Your code has been rated at 10.00/10
 
