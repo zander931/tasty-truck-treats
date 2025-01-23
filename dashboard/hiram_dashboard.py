@@ -5,6 +5,7 @@ import altair as alt
 import pandas as pd
 from os import environ as ENV
 from dotenv import load_dotenv
+
 import pymysql
 from pymysql.connections import Connection
 
