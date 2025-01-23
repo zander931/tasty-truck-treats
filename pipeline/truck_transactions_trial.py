@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import altair as alt
 
 
 @st.cache_data
@@ -13,10 +12,12 @@ def load_data():
     return data
 
 
-st.title('Total number of transactions for each truck')
-data = load_data()
+if __name__ == '__main__':
 
-transaction_counts = data.groupby(
-    'truck_id').size().reset_index(name='num_transactions')
+    st.title('Total number of transactions for each truck')
+    data = load_data()
 
-st.bar_chart(transaction_counts)
+    transaction_counts = data.groupby(
+        'truck_id').size().reset_index(name='num_transactions')
+
+    st.bar_chart(transaction_counts)
