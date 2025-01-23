@@ -3,11 +3,6 @@
 ------------------------------------
 Your code has been rated at 10.00/10
 
-./pipeline/hiram_dashboard.py
-
-------------------------------------
-Your code has been rated at 10.00/10
-
 ./pipeline/pipeline.py
 
 ------------------------------------
@@ -28,7 +23,12 @@ Your code has been rated at 10.00/10
 ------------------------------------
 Your code has been rated at 10.00/10
 
-./pipeline/truck_transactions_trial.py
+./dashboard/hiram_dashboard.py
+
+------------------------------------
+Your code has been rated at 10.00/10
+
+./dashboard/truck_transactions_trial.py
 
 ------------------------------------
 Your code has been rated at 10.00/10
