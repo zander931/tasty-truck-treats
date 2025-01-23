@@ -27,12 +27,9 @@
   },
   {
    "file_name": "./pipeline/truck_transactions_trial.py",
-   "errors": [
-    "pipeline/truck_transactions_trial.py:3:0: W0612: Unused variable 'alt' (unused-variable)",
-    "pipeline/truck_transactions_trial.py:3:0: W0611: Unused altair imported as alt (unused-import)"
-   ],
-   "score": 84.6
+   "errors": [],
+   "score": 100.0
   }
  ],
- "average_score": 97.4
+ "average_score": 100.0
 }
