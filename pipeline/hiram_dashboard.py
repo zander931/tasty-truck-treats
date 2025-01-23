@@ -3,14 +3,27 @@
 import streamlit as st
 import altair as alt
 import pandas as pd
+from os import environ as ENV
+from dotenv import load_dotenv
+import pymysql
 from pymysql.connections import Connection
 
-from load import get_db_connection
+
+def get_db_connection() -> Connection:
+    """Returns a live connection to the MySQL database."""
+
+    return pymysql.connect(host=ENV['DB_HOST'],
+                           user=ENV['DB_USER'],
+                           password=ENV['DB_PASSWORD'],
+                           database=ENV['DB_NAME'],
+                           port=int(ENV['DB_PORT']),
+                           cursorclass=pymysql.cursors.DictCursor)
 
 
 @st.cache_data
 def get_data(_conn: Connection) -> pd.DataFrame:
     """Run a query on the database."""
+
     query = """
         SELECT
             ti.truck_name,
@@ -112,6 +125,8 @@ def payment_method_pie(df: pd.DataFrame) -> alt.Chart:
 
 
 if __name__ == '__main__':
+
+    load_dotenv()
 
     conn = get_db_connection()
     data = get_data(conn)
