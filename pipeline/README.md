@@ -70,6 +70,10 @@ A view has been pre-instantiated for ease of querying the database:
 SELECT * FROM transaction_info;
 ```
 
+## Financial Dashboard wireframe design
+
+![T3 Dashboard Wireframe](https://github.com/zander931/tasty-truck-treats/blob/main/images/T3_financial_dashboard_wireframe.jpg?raw=true)
+
 ### Recommendations
 
 1. Truck #3 has the highest number of transactions (1444) and the highest total transaction value (£8470.56), indicating strong customer demand and operational efficiency. Ideally, further analysis should be done on this truck to find out what factors are optimising demand and efficiency, and hopefully translate this to the other trucks' strategies.
