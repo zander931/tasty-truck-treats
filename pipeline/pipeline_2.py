@@ -44,7 +44,7 @@ if __name__ == "__main__":
     download_truck_data_files(s3, args.bucket, all_contents)
 
     # Transform data ready for insertion to the database
-    batch = 6
+    batch = f'{now.day}-{now.month}-{hour}00'
     combine_transaction_data_files(all_contents, batch)
     clean_truck_data(batch)
 

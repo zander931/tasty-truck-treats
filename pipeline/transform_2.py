@@ -5,19 +5,18 @@ import re
 import logging
 import pandas as pd
 import numpy as np
-from datetime import datetime
 from dotenv import load_dotenv
 
 from extract_2 import connect_to_s3, list_objects, check_objects, download_truck_data_files
 from logger_config import setup_logging
 
 
-def combine_transaction_data_files(files: list[str], batch=1):
+def combine_transaction_data_files(files: list[str], batch: str):
     """Loads and combines relevant files from the data/ folder.
 
     Produces a single combined file in the data/ folder."""
 
-    logging.info("Using batch number: %s", batch)
+    logging.info("Using batch: %s", batch)
 
     truck_batch_df = []
     for f in files:
@@ -47,7 +46,7 @@ def combine_transaction_data_files(files: list[str], batch=1):
         "Combined transactional data saved to 'truck_batch_%s.csv'", batch)
 
 
-def clean_truck_data(batch=1):
+def clean_truck_data(batch: str):
     """Cleans the transactional data in the .csv file."""
 
     trucks = pd.read_csv(f'data/truck_batch_{batch}.csv')
@@ -72,8 +71,7 @@ if __name__ == "__main__":
     # Extract
     setup_logging("console")
     load_dotenv()
-    now = datetime.now()
-    prefix = f'trucks/{now.year}-{now.month}/28/12/'
+    prefix = f'trucks/2025-1/28/12/'
 
     s3 = connect_to_s3()
     contents = list_objects(s3, "sigma-resources-truck", prefix)
@@ -81,6 +79,6 @@ if __name__ == "__main__":
     download_truck_data_files(s3, "sigma-resources-truck", all_contents)
 
     # Transform
-    batch = 5
+    batch = 1
     combine_transaction_data_files(all_contents, batch)
     clean_truck_data(batch)
