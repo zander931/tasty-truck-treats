@@ -17,6 +17,8 @@ def combine_transaction_data_files(files: list[str], batch=1):
 
     Produces a single combined file in the data/ folder."""
 
+    logging.info(f"Using batch: {batch}")
+
     truck_batch_df = []
     for f in files:
         filename = f.split('/')[-1]
