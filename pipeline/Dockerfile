@@ -6,12 +6,12 @@ RUN pip3 install -r requirements.txt
 
 COPY logger_config.py .
 
-COPY pipeline.py .
+COPY pipeline_2.py .
 
-COPY extract.py .
+COPY extract_2.py .
 
-COPY transform.py .
+COPY transform_2.py .
 
 COPY load.py .
 
-CMD ["python3", "pipeline.py"]
+CMD ["python3", "pipeline_2.py"]
