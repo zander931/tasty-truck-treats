@@ -1,10 +1,10 @@
 """Functions to extract batch data from time-partitioned S3."""
+# pylint: disable=C0103
 
 from dotenv import load_dotenv
 import re
 import logging
 import os
-from datetime import datetime
 from os import environ as ENV
 from boto3 import client
 
@@ -57,14 +57,8 @@ if __name__ == "__main__":
     load_dotenv()
 
     s3 = connect_to_s3()
-
-    now = datetime.now()
-    prefix = f'trucks/{now.year}-{now.month}/27/12/'
+    prefix = f'trucks/2025-1/27/12/'
 
     contents = list_objects(s3, "sigma-resources-truck", prefix)
-    logging.info(f'{contents}')
     all_contents = check_objects(contents, prefix)
-    logging.info(f'{all_contents}')
     download_truck_data_files(s3, "sigma-resources-truck", all_contents)
-
-    # f'trucks/{now.year}-{now.month}/{now.day}/{now.hour}/'

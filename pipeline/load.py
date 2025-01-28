@@ -37,4 +37,4 @@ def upload_transaction_data(conn: Connection, filename: str):
 if __name__ == "__main__":
 
     load_dotenv()
-    upload_transaction_data(get_db_connection())
+    upload_transaction_data(get_db_connection(), 'data/truck_hist_cleaned.csv')
