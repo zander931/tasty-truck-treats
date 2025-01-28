@@ -12,6 +12,11 @@
 # $ git config --global merge tool.keepBackup false
 .env
 data/
+.terraform
+.terraform.*
+terraform.tfvars
+*.tfstate
+*.tfstate.*
 *.orig
 
 # Created by git when using merge tools for conflicts
