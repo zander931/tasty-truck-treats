@@ -12,7 +12,7 @@ from extract_2 import connect_to_s3, list_objects, check_objects, download_truck
 from logger_config import setup_logging
 
 
-def combine_transaction_data_files(files: list[str], batch: int):
+def combine_transaction_data_files(files: list[str], batch: int = 1):
     """Loads and combines relevant files from the data/ folder.
 
     Produces a single combined file in the data/ folder."""
@@ -45,7 +45,7 @@ def combine_transaction_data_files(files: list[str], batch: int):
         "Combined transactional data saved to 'truck_batch_%s.csv'", batch)
 
 
-def clean_truck_data(batch: int):
+def clean_truck_data(batch: int = 1):
     """Cleans the transactional data in the .csv file."""
 
     trucks = pd.read_csv(f'data/truck_batch_{batch}.csv')
