@@ -7,15 +7,8 @@
   },
   {
    "file_name": "./pipeline/extract_2.py",
-   "errors": [
-    "pipeline/extract_2.py:14:0: C0103: Function name \"connect_to_s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract_2.py:16:4: C0103: Variable name \"s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract_2.py:22:17: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract_2.py:42:30: C0103: Argument name \"s3_client\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
-    "pipeline/extract_2.py:65:4: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
-    "pipeline/extract_2.py:67:4: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)"
-   ],
-   "score": 86.0
+   "errors": [],
+   "score": 100.0
   },
   {
    "file_name": "./pipeline/extract.py",
@@ -41,10 +34,8 @@
   },
   {
    "file_name": "./pipeline/load.py",
-   "errors": [
-    "pipeline/load.py:40:4: E1120: No value for argument 'filename' in function call (no-value-for-parameter)"
-   ],
-   "score": 64.3
+   "errors": [],
+   "score": 100.0
   },
   {
    "file_name": "./pipeline/logger_config.py",
@@ -62,5 +53,5 @@
    "score": 100.0
   }
  ],
- "average_score": 94.9
+ "average_score": 99.8
 }

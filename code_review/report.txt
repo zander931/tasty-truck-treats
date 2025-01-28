@@ -4,16 +4,9 @@
 Your code has been rated at 10.00/10
 
 ./pipeline/extract_2.py
-************* Module extract_2
-pipeline/extract_2.py:14:0: C0103: Function name "connect_to_s3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-pipeline/extract_2.py:16:4: C0103: Variable name "s3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-pipeline/extract_2.py:22:17: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-pipeline/extract_2.py:42:30: C0103: Argument name "s3_client" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<UPPER_CASE>[A-Z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-pipeline/extract_2.py:65:4: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
-pipeline/extract_2.py:67:4: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
 
------------------------------------
-Your code has been rated at 8.60/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./pipeline/extract.py
 
@@ -38,11 +31,9 @@ pipeline/transform_2.py:20:4: W1203: Use lazy % formatting in logging functions 
 Your code has been rated at 9.83/10
 
 ./pipeline/load.py
-************* Module load
-pipeline/load.py:40:4: E1120: No value for argument 'filename' in function call (no-value-for-parameter)
 
------------------------------------
-Your code has been rated at 6.43/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./pipeline/logger_config.py
 
