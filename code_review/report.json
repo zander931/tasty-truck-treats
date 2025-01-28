@@ -19,8 +19,10 @@
   },
   {
    "file_name": "./pipeline/pipeline.py",
-   "errors": [],
-   "score": 100.0
+   "errors": [
+    "pipeline/pipeline.py:48:4: E1120: No value for argument 'filename' in function call (no-value-for-parameter)"
+   ],
+   "score": 81.5
   },
   {
    "file_name": "./pipeline/transform.py",
@@ -34,8 +36,10 @@
   },
   {
    "file_name": "./pipeline/load.py",
-   "errors": [],
-   "score": 100.0
+   "errors": [
+    "pipeline/load.py:40:4: E1120: No value for argument 'filename' in function call (no-value-for-parameter)"
+   ],
+   "score": 64.3
   },
   {
    "file_name": "./pipeline/logger_config.py",
@@ -53,5 +57,5 @@
    "score": 100.0
   }
  ],
- "average_score": 98.4
+ "average_score": 92.4
 }
