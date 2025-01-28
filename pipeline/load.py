@@ -18,11 +18,11 @@ def get_db_connection() -> Connection:
                            cursorclass=pymysql.cursors.DictCursor)
 
 
-def upload_transaction_data(conn: Connection):
+def upload_transaction_data(conn: Connection, filename: str):
     """Uploads transaction data to the database."""
 
     query = """
-        LOAD DATA LOCAL INFILE 'data/truck_hist_cleaned.csv'
+        LOAD DATA LOCAL INFILE %s
         INTO TABLE FACT_Transaction
         FIELDS TERMINATED BY ','
         LINES TERMINATED BY '\n'
@@ -30,7 +30,7 @@ def upload_transaction_data(conn: Connection):
         (at, payment_method_id, total, truck_id);
     """
     with conn.cursor() as cur:
-        cur.execute(query)
+        cur.execute(query, (filename,))
     conn.commit()
 
 
