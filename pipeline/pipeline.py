@@ -1,4 +1,4 @@
-"""ETL pipeline for T3."""
+"""ETL pipeline for T3 historical data."""
 
 import argparse
 import logging
@@ -45,6 +45,6 @@ if __name__ == "__main__":
     # Load into MySQL database
     conn = get_db_connection()
     logging.info("Successfully connected to T3 database.")
-    upload_transaction_data(conn)
+    upload_transaction_data(conn, 'data/truck_hist_cleaned.csv')
     logging.info("Successfully inserted transactional data into database.")
     conn.close()
