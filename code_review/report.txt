@@ -16,11 +16,9 @@ Your code has been rated at 8.60/10
 Your code has been rated at 10.00/10
 
 ./pipeline/pipeline.py
-************* Module pipeline
-pipeline/pipeline.py:48:4: E1120: No value for argument 'filename' in function call (no-value-for-parameter)
 
------------------------------------
-Your code has been rated at 8.15/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./pipeline/transform.py
 
