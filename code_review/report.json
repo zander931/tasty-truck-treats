@@ -1,6 +1,11 @@
 {
  "files": [
   {
+   "file_name": "./pipeline/pipeline_2.py",
+   "errors": [],
+   "score": 100.0
+  },
+  {
    "file_name": "./pipeline/extract_2.py",
    "errors": [
     "pipeline/extract_2.py:14:0: C0103: Function name \"connect_to_s3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
@@ -29,8 +34,10 @@
   },
   {
    "file_name": "./pipeline/transform_2.py",
-   "errors": [],
-   "score": 100.0
+   "errors": [
+    "pipeline/transform_2.py:20:4: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)"
+   ],
+   "score": 98.3
   },
   {
    "file_name": "./pipeline/load.py",
@@ -55,5 +62,5 @@
    "score": 100.0
   }
  ],
- "average_score": 94.5
+ "average_score": 94.9
 }

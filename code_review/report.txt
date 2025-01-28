@@ -1,3 +1,8 @@
+./pipeline/pipeline_2.py
+
+------------------------------------
+Your code has been rated at 10.00/10
+
 ./pipeline/extract_2.py
 ************* Module extract_2
 pipeline/extract_2.py:14:0: C0103: Function name "connect_to_s3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
@@ -26,9 +31,11 @@ Your code has been rated at 10.00/10
 Your code has been rated at 10.00/10
 
 ./pipeline/transform_2.py
+************* Module transform_2
+pipeline/transform_2.py:20:4: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)
 
-------------------------------------
-Your code has been rated at 10.00/10
+-----------------------------------
+Your code has been rated at 9.83/10
 
 ./pipeline/load.py
 ************* Module load
