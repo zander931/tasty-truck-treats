@@ -34,14 +34,9 @@ Your code has been rated at 10.00/10
 Your code has been rated at 10.00/10
 
 ./daily_report/report_data.py
-************* Module report_data
-daily_report/report_data.py:27:4: C0103: Variable name "query1" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-daily_report/report_data.py:35:4: C0103: Variable name "query2" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-daily_report/report_data.py:49:4: C0103: Variable name "query3" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
-daily_report/report_data.py:58:4: C0103: Variable name "query4" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)
 
------------------------------------
-Your code has been rated at 9.02/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./daily_report/generate_html.py
 
