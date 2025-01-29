@@ -71,7 +71,7 @@ if __name__ == "__main__":
     # Extract
     setup_logging("console")
     load_dotenv()
-    prefix = f'trucks/2025-1/28/12/'
+    prefix = f'trucks/2025-1/28/18/'
 
     s3 = connect_to_s3()
     contents = list_objects(s3, "sigma-resources-truck", prefix)
@@ -79,6 +79,6 @@ if __name__ == "__main__":
     download_truck_data_files(s3, "sigma-resources-truck", all_contents)
 
     # Transform
-    batch = 1
+    batch = 7
     combine_transaction_data_files(all_contents, batch)
     clean_truck_data(batch)

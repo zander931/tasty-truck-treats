@@ -57,7 +57,7 @@ if __name__ == "__main__":
     load_dotenv()
 
     s3 = connect_to_s3()
-    prefix = f'trucks/2025-1/27/12/'
+    prefix = f'trucks/2025-1/28/18/'
 
     contents = list_objects(s3, "sigma-resources-truck", prefix)
     all_contents = check_objects(contents, prefix)
