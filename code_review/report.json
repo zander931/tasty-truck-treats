@@ -36,11 +36,6 @@
    "score": 100.0
   },
   {
-   "file_name": "./pipeline/logger_config.py",
-   "errors": [],
-   "score": 100.0
-  },
-  {
    "file_name": "./daily_report/report_data.py",
    "errors": [
     "daily_report/report_data.py:27:4: C0103: Variable name \"query1\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
@@ -48,7 +43,12 @@
     "daily_report/report_data.py:49:4: C0103: Variable name \"query3\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
     "daily_report/report_data.py:58:4: C0103: Variable name \"query4\" doesn't conform to '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)"
    ],
-   "score": 90.0
+   "score": 90.2
+  },
+  {
+   "file_name": "./daily_report/generate_html.py",
+   "errors": [],
+   "score": 100.0
   },
   {
    "file_name": "./dashboard/hiram_dashboard.py",
@@ -59,7 +59,12 @@
    "file_name": "./dashboard/truck_transactions_trial.py",
    "errors": [],
    "score": 100.0
+  },
+  {
+   "file_name": "./logger_config.py",
+   "errors": [],
+   "score": 100.0
   }
  ],
- "average_score": 99.1
+ "average_score": 99.2
 }
