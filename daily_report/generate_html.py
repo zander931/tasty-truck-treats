@@ -1,5 +1,6 @@
 """Script for generating HTML for the daily report."""
 # pylint: disable=line-too-long
+# pylint: disable=unused-argument
 
 from datetime import date, timedelta
 import json
@@ -168,29 +169,29 @@ def lambda_handler(event, context):
         setup_logging("console")
         load_dotenv()
 
-        conn = get_db_connection()
+        connect = get_db_connection()
         logging.info("Established connection with MySQL.")
-        queries, titles = define_queries()
+        sql_queries, query_titles = define_queries()
 
-        info = get_data(conn, queries, titles)
+        report_data = get_data(connect, sql_queries, query_titles)
         logging.info("Loaded daily info.")
-        conn.close()
+        connect.close()
 
-        HEAD = write_head()
-        total_revenue = write_total_revenue(info['total_revenue'])
-        revenue_by_truck = write_revenue_by_truck(info['revenue_by_truck'])
-        payment_method = write_payment_method(info['payment_method'])
-        pay_meth_by_truck = write_payment_method_by_truck(
-            info['payment_method_by_truck'])
-        html = HEAD + '\n\n' + total_revenue + '\n\n' + revenue_by_truck + '\n\n' + \
-            payment_method + '\n\n' + pay_meth_by_truck
+        head = write_head()
+        tot_rev = write_total_revenue(report_data['total_revenue'])
+        rev_by_truck = write_revenue_by_truck(report_data['revenue_by_truck'])
+        pay_method = write_payment_method(report_data['payment_method'])
+        pay_method_by_truck = write_payment_method_by_truck(
+            report_data['payment_method_by_truck'])
+        html_output = head + '\n\n' + tot_rev + '\n\n' + rev_by_truck + '\n\n' + \
+            pay_method + '\n\n' + pay_method_by_truck
 
         return {
             'status_code': 200,
-            'body': json.dumps({'html_report': html})
+            'body': json.dumps({'html_report': html_output})
         }
     except Exception as e:
-        logging.error(f"Error generating report: {e}")
+        logging.error("Error generating report: %s", e)
         return {
             'status_code': 500,
             'body': json.dumps({'error': 'Internal server error'})
