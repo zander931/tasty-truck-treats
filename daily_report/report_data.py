@@ -1,6 +1,6 @@
 """A script to retrieve the daily report data for stakeholders of T3."""
 
-from datetime import date
+from datetime import date, timedelta
 from decimal import Decimal
 import json
 from os import environ as ENV
@@ -90,13 +90,14 @@ def get_data(con: Connection, query: list[str], title: list[str]) -> dict:
                     if isinstance(val, Decimal):
                         row[key] = float(val)
             results[title[i]] = result
+    return results
 
 
 def download_json(results: dict):
     """Download data as json file."""
 
-    current_date = date.today()
-    form_date = current_date.strftime('%Y-%m-%d')
+    yesterday = date.today() - timedelta(days=1)
+    form_date = yesterday.strftime('%Y-%m-%d')
     with open(f'report_data_{form_date}.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=4)
 
