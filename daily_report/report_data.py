@@ -24,7 +24,7 @@ def get_db_connection() -> Connection:
 def define_queries() -> tuple[list, list]:
     """Define queries and titles."""
 
-    query1 = """
+    query_one = """
         SELECT 
             DATE(at) date,
             SUM(total) total
@@ -32,7 +32,7 @@ def define_queries() -> tuple[list, list]:
         WHERE DATE(at) = CURDATE() - INTERVAL 1 DAY;
     """
 
-    query2 = """
+    query_two = """
         SELECT
             truck_id,
             t.fsa_rating,
@@ -46,7 +46,7 @@ def define_queries() -> tuple[list, list]:
         ORDER BY truck_id ASC;
     """
 
-    query3 = """
+    query_three = """
         SELECT
             payment_method,
             SUM(total) total
@@ -55,7 +55,7 @@ def define_queries() -> tuple[list, list]:
         GROUP BY payment_method;
     """
 
-    query4 = """
+    query_four = """
         SELECT
             truck_id,
             payment_method,
@@ -67,11 +67,11 @@ def define_queries() -> tuple[list, list]:
         ORDER BY truck_id ASC;
     """
 
-    return ([query1, query2, query3, query4], ["total_revenue",
-                                               "revenue_by_truck",
-                                               "payment_method",
-                                               "payment_method_by_truck"
-                                               ]
+    return ([query_one, query_two, query_three, query_four], ["total_revenue",
+                                                              "revenue_by_truck",
+                                                              "payment_method",
+                                                              "payment_method_by_truck"
+                                                              ]
             )
 
 
