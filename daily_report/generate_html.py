@@ -4,6 +4,9 @@
 from datetime import date, timedelta
 import json
 import logging
+from dotenv import load_dotenv
+
+from report_data import get_db_connection, define_queries, get_data, download_json
 
 
 def setup_logging(output: str, filename="daily_report.log", level=20):
@@ -134,8 +137,8 @@ def write_payment_method_by_truck(pay_method_by_truck: list[dict]):
     payment_method_by_truck_headers = [
         'Truck ID', 'Payment Method', 'Total Revenue', 'Avg Transaction Amount']
     payment_method_by_truck_rows = [
-        [entry['truck_id'], entry['payment_method'], f"${
-            entry['total']:.2f}", f"${entry['avg_amount']:.2f}"]
+        [entry['truck_id'], entry['payment_method'], f"£{
+            entry['total']:.2f}", f"£{entry['avg_amount']:.2f}"]
         for entry in pay_method_by_truck
     ]
     html_content += generate_table(payment_method_by_truck_headers,
@@ -159,9 +162,53 @@ def download_html(content: str, the_date: str):
         "HTML report has been generated and saved as 'daily_report_%s.html'.", the_date)
 
 
+def lambda_handler(event, context):
+    """AWS Lambda handler function."""
+    try:
+        setup_logging("console")
+        load_dotenv()
+
+        conn = get_db_connection()
+        logging.info("Established connection with MySQL.")
+        queries, titles = define_queries()
+
+        info = get_data(conn, queries, titles)
+        logging.info("Loaded daily info.")
+        conn.close()
+
+        HEAD = write_head()
+        total_revenue = write_total_revenue(info['total_revenue'])
+        revenue_by_truck = write_revenue_by_truck(info['revenue_by_truck'])
+        payment_method = write_payment_method(info['payment_method'])
+        pay_meth_by_truck = write_payment_method_by_truck(
+            info['payment_method_by_truck'])
+        html = HEAD + '\n\n' + total_revenue + '\n\n' + revenue_by_truck + '\n\n' + \
+            payment_method + '\n\n' + pay_meth_by_truck
+
+        return {
+            'status_code': 200,
+            'body': json.dumps({'html_report': html})
+        }
+    except Exception as e:
+        logging.error(f"Error generating report: {e}")
+        return {
+            'status_code': 500,
+            'body': json.dumps({'error': 'Internal server error'})
+        }
+
+
 if __name__ == '__main__':
 
     setup_logging("console")
+    load_dotenv()
+    conn = get_db_connection()
+    logging.info("Established connection with MySQL.")
+    queries, titles = define_queries()
+    info = get_data(conn, queries, titles)
+    conn.close()
+    download_json(info)
+    logging.info("Loaded daily info.")
+
     yesterday = date.today() - timedelta(days=1)
     form_date = yesterday.strftime('%Y-%m-%d')
     info = get_json_data(form_date)
