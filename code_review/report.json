@@ -42,8 +42,14 @@
   },
   {
    "file_name": "./daily_report/generate_html.py",
-   "errors": [],
-   "score": 100.0
+   "errors": [
+    "daily_report/generate_html.py:193:8: W1203: Use lazy % formatting in logging functions (logging-fstring-interpolation)",
+    "daily_report/generate_html.py:165:19: W0613: Unused argument 'event' (unused-argument)",
+    "daily_report/generate_html.py:165:26: W0613: Unused argument 'context' (unused-argument)",
+    "daily_report/generate_html.py:179:8: C0103: Variable name \"HEAD\" doesn't conform to the `snake_case` group in the '(?:(?P<snake_case>[a-z_]+)|(?P<PascalCase>[^a-z][A-Za-z]+)|(?P<camelCase>[^A-Z][A-Za-z]+))$' pattern (invalid-name)",
+    "daily_report/generate_html.py:165:0: W0612: Unused variable 'lambda_handler' (unused-variable)"
+   ],
+   "score": 95.2
   },
   {
    "file_name": "./dashboard/hiram_dashboard.py",
@@ -61,5 +67,5 @@
    "score": 100.0
   }
  ],
- "average_score": 100.0
+ "average_score": 99.6
 }
