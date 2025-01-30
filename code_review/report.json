@@ -42,10 +42,8 @@
   },
   {
    "file_name": "./daily_report/generate_html.py",
-   "errors": [
-    "daily_report/generate_html.py:166:0: W0612: Unused variable 'handler' (unused-variable)"
-   ],
-   "score": 99.0
+   "errors": [],
+   "score": 100.0
   },
   {
    "file_name": "./dashboard/hiram_dashboard.py",
@@ -63,5 +61,5 @@
    "score": 100.0
   }
  ],
- "average_score": 99.9
+ "average_score": 100.0
 }
