@@ -43,7 +43,7 @@
   {
    "file_name": "./daily_report/generate_html.py",
    "errors": [
-    "daily_report/generate_html.py:166:0: W0612: Unused variable 'lambda_handler' (unused-variable)"
+    "daily_report/generate_html.py:166:0: W0612: Unused variable 'handler' (unused-variable)"
    ],
    "score": 99.0
   },
