@@ -67,25 +67,10 @@ def write_head():
     """Writes the header of the HTML file."""
 
     return """
-    <html>
-    <head>
-        <title>Daily Report</title>
-        <style>
-            body {
+    <html><head><title>Daily Report</title><style>body {
                 font-family: Arial, sans-serif;
-                margin: 20px;
-            }
-            h1 {
-                color: #2c3e50;
-            }
-            h2 {
-                color: #34495e;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Daily Report: Key Metrics</h1>
-    
+                margin: 20px;}</style>
+    </head><body><h1>Daily Report: Key Metrics</h1>
     """
 
 
@@ -108,8 +93,8 @@ def write_revenue_by_truck(rev_by_truck: list[dict]):
     revenue_by_truck_headers = ['Truck ID', 'FSA Rating',
                                 'Total Revenue', 'Transaction Count', 'Avg Transaction Amount']
     revenue_by_truck_rows = [
-        [entry['truck_id'], entry['fsa_rating'], f"£{
-            entry['total']:.2f}", entry['count'], f"£{entry['avg_amount']:.2f}"]
+        [entry['truck_id'], f"£{entry['total']:.2f}",
+            entry['count'], f"£{entry['avg_amount']:.2f}", entry['fsa_rating']]
         for entry in rev_by_truck
     ]
     html_content += generate_table(revenue_by_truck_headers,
@@ -183,12 +168,12 @@ def handler(event=None, context=None):
         pay_method = write_payment_method(report_data['payment_method'])
         pay_method_by_truck = write_payment_method_by_truck(
             report_data['payment_method_by_truck'])
-        html_output = head + '\n\n' + tot_rev + '\n\n' + rev_by_truck + '\n\n' + \
-            pay_method + '\n\n' + pay_method_by_truck + '\n\n' + '</body></html>'
+        html_output = head + tot_rev + '<br>' + rev_by_truck + '<br>' + \
+            pay_method + '<br>' + pay_method_by_truck + '</body></html>'
 
         return {
             'status_code': 200,
-            'body': json.dumps({'html_report': html_output})
+            'body': html_output
         }
     except Exception as e:
         logging.error("Error generating report: %s", e)

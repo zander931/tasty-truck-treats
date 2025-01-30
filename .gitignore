@@ -12,6 +12,7 @@
 # $ git config --global merge tool.keepBackup false
 .env
 data/
+push_commands.sh
 .terraform
 .terraform.*
 terraform.tfvars
