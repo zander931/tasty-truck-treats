@@ -223,3 +223,5 @@ if __name__ == '__main__':
     html = HEAD + '\n\n' + total_revenue + '\n\n' + revenue_by_truck + '\n\n' + \
         payment_method + '\n\n' + pay_meth_by_truck
     download_html(html, form_date)
+
+    print(handler())
