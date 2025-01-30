@@ -163,7 +163,7 @@ def download_html(content: str, the_date: str):
         "HTML report has been generated and saved as 'daily_report_%s.html'.", the_date)
 
 
-def handler(event, context):
+def handler(event=None, context=None):
     """AWS Lambda handler function."""
     try:
         setup_logging("console")
