@@ -39,11 +39,9 @@ Your code has been rated at 10.00/10
 Your code has been rated at 10.00/10
 
 ./daily_report/generate_html.py
-************* Module generate_html
-daily_report/generate_html.py:166:0: W0612: Unused variable 'handler' (unused-variable)
 
------------------------------------
-Your code has been rated at 9.90/10
+------------------------------------
+Your code has been rated at 10.00/10
 
 ./dashboard/hiram_dashboard.py
 
