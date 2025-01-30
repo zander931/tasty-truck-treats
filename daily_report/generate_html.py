@@ -66,8 +66,7 @@ def generate_table(headers, rows):
 def write_head():
     """Writes the header of the HTML file."""
 
-    return """
-    <html><head><title>Daily Report</title><style>body {
+    return """<html><head><title>Daily Report</title><style>body {
                 font-family: Arial, sans-serif;
                 margin: 20px;}</style>
     </head><body><h1>Daily Report: Key Metrics</h1>
@@ -90,8 +89,8 @@ def write_revenue_by_truck(rev_by_truck: list[dict]):
     """Total revenue by truck."""
 
     html_content = "<h2>Revenue by Truck</h2>"
-    revenue_by_truck_headers = ['Truck ID', 'FSA Rating',
-                                'Total Revenue', 'Transaction Count', 'Avg Transaction Amount']
+    revenue_by_truck_headers = ['Truck ID', 'Total Revenue',
+                                'Transaction Count', 'Avg Transaction Amount', 'FSA Rating']
     revenue_by_truck_rows = [
         [entry['truck_id'], f"£{entry['total']:.2f}",
             entry['count'], f"£{entry['avg_amount']:.2f}", entry['fsa_rating']]
@@ -205,8 +204,8 @@ if __name__ == '__main__':
     payment_method = write_payment_method(info['payment_method'])
     pay_meth_by_truck = write_payment_method_by_truck(
         info['payment_method_by_truck'])
-    html = HEAD + '\n\n' + total_revenue + '\n\n' + revenue_by_truck + '\n\n' + \
-        payment_method + '\n\n' + pay_meth_by_truck
+    html = HEAD + '\n\n' + total_revenue + '\n\n' + revenue_by_truck + \
+        '\n\n' + payment_method + '\n\n' + pay_meth_by_truck
     download_html(html, form_date)
 
     print(handler())
