@@ -163,7 +163,7 @@ def download_html(content: str, the_date: str):
         "HTML report has been generated and saved as 'daily_report_%s.html'.", the_date)
 
 
-def lambda_handler(event, context):
+def handler(event, context):
     """AWS Lambda handler function."""
     try:
         setup_logging("console")
@@ -184,7 +184,7 @@ def lambda_handler(event, context):
         pay_method_by_truck = write_payment_method_by_truck(
             report_data['payment_method_by_truck'])
         html_output = head + '\n\n' + tot_rev + '\n\n' + rev_by_truck + '\n\n' + \
-            pay_method + '\n\n' + pay_method_by_truck
+            pay_method + '\n\n' + pay_method_by_truck + '\n\n' + '</body></html>'
 
         return {
             'status_code': 200,
