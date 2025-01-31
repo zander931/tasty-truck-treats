@@ -4,6 +4,8 @@
 
 from datetime import date, timedelta
 import json
+# import pandas as pd
+# import altair as alt
 import logging
 from dotenv import load_dotenv
 
@@ -89,10 +91,10 @@ def write_revenue_by_truck(rev_by_truck: list[dict]):
     """Total revenue by truck."""
 
     html_content = "<h2>Revenue by Truck</h2>"
-    revenue_by_truck_headers = ['Truck ID', 'Total Revenue',
+    revenue_by_truck_headers = ['Truck Name', 'Total Revenue',
                                 'Transaction Count', 'Avg Transaction Amount', 'FSA Rating']
     revenue_by_truck_rows = [
-        [entry['truck_id'], f"£{entry['total']:.2f}",
+        [entry['truck_name'], f"£{entry['total']:.2f}",
             entry['count'], f"£{entry['avg_amount']:.2f}", entry['fsa_rating']]
         for entry in rev_by_truck
     ]
@@ -115,14 +117,26 @@ def write_payment_method(pay_method: list[dict]):
     return html_content
 
 
+# def create_pie_chart(pay_method: list[dict]):
+
+#     df = pd.DataFrame(pay_method)
+#     return alt.Chart(df).mark_arc().encode(
+#         theta=alt.Theta('total:Q'),
+#         color=alt.Color('payment_method')
+#     ).properties(
+#         title='Payment Method Distribution',
+#         height=1000, width=1000
+#     ).to_html()
+
+
 def write_payment_method_by_truck(pay_method_by_truck: list[dict]):
     """Payment method distribution by truck"""
 
     html_content = "<h2>Payment Method by Truck</h2>"
     payment_method_by_truck_headers = [
-        'Truck ID', 'Payment Method', 'Total Revenue', 'Avg Transaction Amount']
+        'Truck Name', 'Payment Method', 'Total Revenue', 'Avg Transaction Amount']
     payment_method_by_truck_rows = [
-        [entry['truck_id'], entry['payment_method'], f"£{
+        [entry['truck_name'], entry['payment_method'], f"£{
             entry['total']:.2f}", f"£{entry['avg_amount']:.2f}"]
         for entry in pay_method_by_truck
     ]
@@ -130,6 +144,20 @@ def write_payment_method_by_truck(pay_method_by_truck: list[dict]):
                                    payment_method_by_truck_rows)
     logging.info("Payment method distribution by truck written successfully")
     return html_content
+
+
+# def create_chart_pay_meth_by_truck(pay_method_by_truck: list[dict]):
+
+#     df = pd.DataFrame(pay_method_by_truck)
+#     return alt.Chart(df).mark_bar().encode(
+#         x=alt.X('truck_name:N', title='Truck Name',
+#                 axis=alt.Axis(labelAngle=45)),
+#         y=alt.Y('total:Q', title='Total Amount (£)'),
+#         color='payment_method:N'
+#     ).properties(
+#         title='Total Revenue by Truck and Payment Method',
+#         width=800, height=400
+#     ).to_html()
 
 
 def download_html(content: str, the_date: str):
@@ -167,8 +195,10 @@ def handler(event=None, context=None):
         pay_method = write_payment_method(report_data['payment_method'])
         pay_method_by_truck = write_payment_method_by_truck(
             report_data['payment_method_by_truck'])
+
         html_output = head + tot_rev + '<br>' + rev_by_truck + '<br>' + \
-            pay_method + '<br>' + pay_method_by_truck + '</body></html>'
+            pay_method + '<br>' + \
+            '<br>' + pay_method_by_truck + '<br>' + '</body></html>'
 
         return {
             'status_code': 200,
@@ -204,8 +234,16 @@ if __name__ == '__main__':
     payment_method = write_payment_method(info['payment_method'])
     pay_meth_by_truck = write_payment_method_by_truck(
         info['payment_method_by_truck'])
-    html = HEAD + '\n\n' + total_revenue + '\n\n' + revenue_by_truck + \
-        '\n\n' + payment_method + '\n\n' + pay_meth_by_truck
+    # bar_chart = create_chart_pay_meth_by_truck(
+    #     info['payment_method_by_truck'])
+    # pie_chart = create_pie_chart(info['payment_method'])
+
+    html = (
+        HEAD + '<br>' + total_revenue + '<br>' + revenue_by_truck +
+        '<br>' + payment_method + '<br>' +
+        '<br>' + pay_meth_by_truck + '<br>' +
+        '</body></html>'
+    )
     download_html(html, form_date)
 
     print(handler())

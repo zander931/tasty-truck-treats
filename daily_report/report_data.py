@@ -34,7 +34,7 @@ def define_queries() -> tuple[list, list]:
 
     query_two = """
         SELECT
-            truck_id,
+            t.truck_name,
             t.fsa_rating,
             SUM(total) total,
             COUNT(transaction_id) count,
@@ -57,11 +57,12 @@ def define_queries() -> tuple[list, list]:
 
     query_four = """
         SELECT
-            truck_id,
+            t.truck_name,
             payment_method,
             SUM(total) total,
             ROUND(AVG(total),2) avg_amount
         FROM transaction_info
+        JOIN DIM_Truck t USING(truck_id)
         WHERE DATE(at) = CURDATE() - INTERVAL 1 DAY
         GROUP BY payment_method, truck_id
         ORDER BY truck_id ASC;
